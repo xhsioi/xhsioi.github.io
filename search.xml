@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>图神经网络综述研读（一）</title>
+      <link href="/2022/11/10/tu-shen-jing-wang-luo-zong-shu-yan-du-yi/"/>
+      <url>/2022/11/10/tu-shen-jing-wang-luo-zong-shu-yan-du-yi/</url>
+      
+        <content type="html"><![CDATA[<h1 id="A-Survey-on-Dialogue-Systems-Recent-Advances-and-New-Frontiers"><a href="#A-Survey-on-Dialogue-Systems-Recent-Advances-and-New-Frontiers" class="headerlink" title="A Survey on Dialogue Systems:Recent Advances and New Frontiers"></a>A Survey on Dialogue Systems:Recent Advances and New Frontiers</h1><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>从两个方面介绍对话系统：传统的有监督模型和现在的非监督模型（或者说是源于任务或者非源于任务的学习）由于深度学习的加入，对话系统的研究进入了一个新的阶段。</p><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>人机交互成为现实，数据驱动、开放领域的会话系统成为热点。工业界的分类为面向任务的系统和非面向任务的系统（聊天机器人）。</p><p>主要的问题：手工计算的规则集，效率太低。</p><p>解决方案：深度学习模型的高维度分布式学习解决这些问题。</p><p>基于任务的会话系统：</p><ul><li>端到端的基于任务的会话系统；</li><li>状态空间对话；</li></ul><p>不基于任务的会话系统：（应用更加广泛）</p><ul><li>序列到序列的模型；（生成正确的回答）</li><li>基于搜索的模型；（在语料库中搜索正确的回复）</li></ul><h2 id="TASK-ORIENTED-DIALOGUE-SYSTEMS"><a href="#TASK-ORIENTED-DIALOGUE-SYSTEMS" class="headerlink" title="TASK-ORIENTED DIALOGUE SYSTEMS"></a><strong>TASK-ORIENTED DIALOGUE SYSTEMS</strong></h2><h3 id="Pipeline-Methods"><a href="#Pipeline-Methods" class="headerlink" title="Pipeline Methods"></a><strong>Pipeline Methods</strong></h3><p>流水线模型分成四个阶段：语言的理解、会话状态追踪、会话策略的学习、自然语言的生成；</p><p>语言的理解过程：</p><p>两种方法，基于句子的分析和基于单词的分析。</p><ul><li>句子：<ul><li>一般使用卷积神经网络进行分析。</li></ul></li><li>单词：<ul><li>插槽填充，每个单词附加一个语义标签</li><li>常使用深度学习的模DBSN模型，然后实现监督结果和CRF基准线进行比较。</li></ul></li></ul><p>会话状态追踪：</p><p>通常的形式为slot filling和semantic frame；（插槽填充或者语义框架）</p><p>插槽填充模式：</p><p>以每个槽上的概率分布函数作为出现概率（手工规则、条件随机场、最大熵模型和web风格排名）。深度学习的方法使得任意区间上的概率获取成为可能。</p><h3 id="Natural-Language-Generation"><a href="#Natural-Language-Generation" class="headerlink" title="Natural Language Generation"></a><em>Natural Language Generation</em></h3><p>将一个抽象的对话动作转化为自然语言的表面话语；</p><p>传统NLG方法；</p><p>基于LSTM的神经网络算法</p><h2 id="End-to-End-Methods"><a href="#End-to-End-Methods" class="headerlink" title="End-to-End Methods"></a>End-to-End Methods</h2><p>解决传统模型的缺点：不能及时根据用户反馈进行更正语料库，模型不具有通用性（规则集的手工性太强）</p><h2 id="NON-TASK-ORIENTED-DIALOGUE-SYSTEMS"><a href="#NON-TASK-ORIENTED-DIALOGUE-SYSTEMS" class="headerlink" title="NON-TASK-ORIENTED DIALOGUE SYSTEMS"></a><strong>NON-TASK-ORIENTED DIALOGUE SYSTEMS</strong></h2><p>典型：聊天机器人（检索、生成）</p><p>实现方式：一般为基于短语（to translation)的翻译方式。</p><p>序列-序列转换：</p><p>RNN将X序列转化成上下文向量，</p><p><a href="https://blog.csdn.net/bestrivern/article/details/90723524">(46条消息) RNN详解(Recurrent Neural Network)_bestrivern的博客-CSDN博客_rnn详解</a></p><h3 id="softmax函数"><a href="#softmax函数" class="headerlink" title="softmax函数"></a><strong>softmax函数</strong></h3><p>如果有两个函数a和b，并且a＞b。如果取max值那么直接选取a没有第二种可能，这样会造成分值小的一方饥饿。希望值大的一方经常取到但是分值较小的那一项也可以偶尔取到。</p><p>同样a和b，并且a＞b。如果按照softmax值计算a和b的概率，由于a的softmax值＞b的softmax值，则a会经常被取到而b也会偶尔被取到，概率跟他们本身的大小有关。</p><h2 id="Response-Diversity"><a href="#Response-Diversity" class="headerlink" title="Response Diversity"></a><em>Response Diversity</em></h2><p>背景：对于训练集中的高频词汇，使用逆文档频率进行测试，获得更好的结果。</p><p>主要方向：降低高频率无用句子的出现频率、结合情景给出同一问题的不同答案。</p><p>可能的入手点：</p><ul><li>某个领域的对话框状态跟踪RNN对话模型进行验证，找寻创新点。（48）</li><li>NBT神经信念跟踪器的检测；（49）</li><li>常见的端到端模型84 4 （结合对话历史的学习响应）映射关系的创新点；<ul><li>给出的方向：107 训练状态追踪的结合。</li><li></li></ul></li><li>传统模型的通用性研究？</li><li><strong>项目：聊天机器人的相关</strong><ul><li>聊天机器人翻译的基本形式（除了基本的四阶段模式，基于检测的会简单一点？）</li><li>RNN语言模型激活函数中的改良？</li><li>验证：分层rnn通常优于非分层rnn。</li><li><strong>全局特性重新排序（30 67 62）</strong></li><li>变分自动编码器（VAE）选择过程中随机函数的选择。</li><li><strong>收件人信息、情感回复、根据已生成的话分割训练形成下一次对话的回答；（8 109 51 31）</strong></li><li><strong>最喜欢的多模态（75 CNN和RNN的同时嵌套，综合分析情感问题？）</strong></li></ul></li><li><strong>混合模型（基于检索+基于nn）（66 52 60）</strong></li><li>主要研究方向：热启动、<strong>利用web获取语料、隐私保护方面（50）</strong></li></ul><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul><li>项目：简单：基于检索的聊天机器人。<ul><li>其他：综合检索机制和nn训练的机器人；<ul><li><strong>最喜欢的多模态（75 CNN和RNN的同时嵌套，综合分析情感问题？），然后结合基于检索的机器人</strong></li><li>创新点：<ul><li>检索语料库来源；</li><li>程序的热启动方式；</li><li>避免敏感问题的策略？</li><li>全局特性重排序的策略？</li><li>……<strong>（8 109 51 31）</strong></li></ul></li></ul></li></ul></li></ul><p><strong>（30 67 62）（66 52 60）（50）</strong></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 自我提升 </tag>
+            
+            <tag> 论文研读 </tag>
+            
+            <tag> 综述 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>软件工程——基于华为云平台的凤凰商城项目实习报告</title>
       <link href="/2022/10/03/ruan-jian-gong-cheng-ji-yu-hua-wei-yun-ping-tai-de-feng-huang-shang-cheng-xiang-mu-shi-xi-bao-gao/"/>
       <url>/2022/10/03/ruan-jian-gong-cheng-ji-yu-hua-wei-yun-ping-tai-de-feng-huang-shang-cheng-xiang-mu-shi-xi-bao-gao/</url>

@@ -1,0 +1,241 @@
+<!DOCTYPE HTML><html lang="zh-CN"><head><meta charset="utf-8"><meta name="keywords" content="python数据分析大作业（一）, cout&gt;&gt;.&lt;&lt;cin"><meta name="baidu-site-verification" content="fmlEuI34ir"><meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48"><meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7"><meta name="description" content="作业一实验报告重要的库from random import random
+
+import pandas as pd
+import numpy as np
+import get_data as crawlers
+from itertools "><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><meta name="renderer" content="webkit|ie-stand|ie-comp"><meta name="mobile-web-app-capable" content="yes"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><title>python数据分析大作业（一） | cout&gt;&gt;.&lt;&lt;cin</title><link rel="icon" type="image/png" href="/favicon.png"><link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css"><link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css"><link rel="stylesheet" type="text/css" href="/libs/aos/aos.css"><link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css"><link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css"><link rel="stylesheet" type="text/css" href="/css/matery.css"><link rel="stylesheet" type="text/css" href="/css/my.css"><style type="text/css"></style><script src="/libs/jquery/jquery-2.2.0.min.js"></script><script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?ce84511d3df71640a9378a69f6293044";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><script>document.write('<script src="https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba" id="sozz"><\/script>')</script><meta name="generator" content="Hexo 5.4.0"><style>.github-emoji{position:relative;display:inline-block;width:1.2em;min-height:1.2em;overflow:hidden;vertical-align:top;color:transparent}.github-emoji>span{position:relative;z-index:10}.github-emoji .fancybox,.github-emoji img{margin:0!important;padding:0!important;border:none!important;outline:0!important;text-decoration:none!important;user-select:none!important;cursor:auto!important}.github-emoji img{height:1.2em!important;width:1.2em!important;position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;user-select:none!important;cursor:auto!important}.github-emoji-fallback{color:inherit}.github-emoji-fallback img{opacity:0!important}</style><style>mjx-container[jax=SVG]{direction:ltr}mjx-container[jax=SVG]>svg{overflow:visible}mjx-container[jax=SVG][display=true]{display:block;text-align:center;margin:1em 0}mjx-container[jax=SVG][justify=left]{text-align:left}mjx-container[jax=SVG][justify=right]{text-align:right}g[data-mml-node=merror]>g{fill:red;stroke:red}g[data-mml-node=merror]>rect[data-background]{fill:#ff0;stroke:none}g[data-mml-node=mtable]>line[data-line]{stroke-width:70px;fill:none}g[data-mml-node=mtable]>rect[data-frame]{stroke-width:70px;fill:none}g[data-mml-node=mtable]>.mjx-dashed{stroke-dasharray:140}g[data-mml-node=mtable]>.mjx-dotted{stroke-linecap:round;stroke-dasharray:0,140}g[data-mml-node=mtable]>svg{overflow:visible}[jax=SVG] mjx-tool{display:inline-block;position:relative;width:0;height:0}[jax=SVG] mjx-tool>mjx-tip{position:absolute;top:0;left:0}mjx-tool>mjx-tip{display:inline-block;padding:.2em;border:1px solid #888;font-size:70%;background-color:#f8f8f8;color:#000;box-shadow:2px 2px 5px #aaa}g[data-mml-node=maction][data-toggle]{cursor:pointer}mjx-status{display:block;position:fixed;left:1em;bottom:1em;min-width:25%;padding:.2em .4em;border:1px solid #888;font-size:90%;background-color:#f8f8f8;color:#000}foreignObject[data-mjx-xml]{font-family:initial;line-height:normal;overflow:visible}.MathJax path{stroke-width:3}mjx-container[display=true]{overflow:auto hidden}mjx-container[display=true]+br{display:none}</style></head><body><header class="navbar-fixed"><nav id="headNav" class="bg-color nav-transparent"><div id="navContainer" class="nav-wrapper container"><div class="brand-logo"><a href="/" class="waves-effect waves-light"><img src="/medias/logo.png" class="logo-img" alt="LOGO"> <span class="logo-span">cout>>.<<cin</span></a></div><a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a><ul class="right"><li class="hide-on-med-and-down"><a href="/" class="waves-effect waves-light"><i class="fa fa-home"></i> <span>首页</span></a></li><li class="hide-on-med-and-down"><a href="/tags" class="waves-effect waves-light"><i class="fa fa-tags"></i> <span>标签</span></a></li><li class="hide-on-med-and-down"><a href="/categories" class="waves-effect waves-light"><i class="fa fa-bookmark"></i> <span>分类</span></a></li><li class="hide-on-med-and-down"><a href="/archives" class="waves-effect waves-light"><i class="fa fa-archive"></i> <span>归档</span></a></li><li class="hide-on-med-and-down"><a href="/about" class="waves-effect waves-light"><i class="fa fa-user-circle-o"></i> <span>关于</span></a></li><li class="hide-on-med-and-down"><a href="/friends" class="waves-effect waves-light"><i class="fa fa-address-book"></i> <span>友情链接</span></a></li><li class="hide-on-med-and-down"><a href="/contact" class="waves-effect waves-light"><i class="fa fa-comments"></i> <span>Contact</span></a></li><li><a href="#searchModal" class="modal-trigger waves-effect waves-light"><i id="searchIcon" class="fa fa-search" title="搜索"></i></a></li></ul><div id="mobile-nav" class="side-nav sidenav"><div class="mobile-head bg-color"><img src="/medias/logo.png" class="logo-img circle responsive-img"><div class="logo-name">cout>>.<<cin</div><div class="logo-desc">大连理工大学|软件工程|创中</div></div><ul class="menu-list mobile-menu-list"><li><a href="/" class="waves-effect waves-light"><i class="fa fa-fw fa-home"></i> 首页</a></li><li><a href="/tags" class="waves-effect waves-light"><i class="fa fa-fw fa-tags"></i> 标签</a></li><li><a href="/categories" class="waves-effect waves-light"><i class="fa fa-fw fa-bookmark"></i> 分类</a></li><li><a href="/archives" class="waves-effect waves-light"><i class="fa fa-fw fa-archive"></i> 归档</a></li><li><a href="/about" class="waves-effect waves-light"><i class="fa fa-fw fa-user-circle-o"></i> 关于</a></li><li><a href="/friends" class="waves-effect waves-light"><i class="fa fa-fw fa-address-book"></i> 友情链接</a></li><li><a href="/contact" class="waves-effect waves-light"><i class="fa fa-fw fa-comments"></i> Contact</a></li><li><div class="divider"></div></li><li><a href="https://github.com/xhsioi/xhsioi.github.io" class="waves-effect waves-light" target="_blank"><i class="fa fa-github-square fa-fw"></i>Fork Me</a></li></ul></div></div><style>.nav-transparent .github-corner{display:none!important}.github-corner{position:absolute;z-index:10;top:0;right:0;border:0;transform:scale(1.1)}.github-corner svg{color:#0f9d58;fill:#fff;height:64px;width:64px}.github-corner:hover .octo-arm{animation:a .56s ease-in-out}.github-corner .octo-arm{animation:none}@keyframes a{0%,to{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}</style><a href="https://github.com/xhsioi/xhsioi.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50"><svg viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a></nav></header><div class="bg-cover pd-header post-cover" style="background-image:url(/medias/featureimages/15.jpg)"><div class="container"><div class="row"><div class="col s12 m12 l12"><div class="brand"><div class="description center-align post-title">python数据分析大作业（一）</div></div></div></div></div></div><main class="post-container content"><link rel="stylesheet" href="/libs/tocbot/tocbot.css"><style>#articleContent h1::before,#articleContent h2::before,#articleContent h3::before,#articleContent h4::before,#articleContent h5::before,#articleContent h6::before{display:block;content:" ";height:100px;margin-top:-100px;visibility:hidden}#articleContent :focus{outline:0}.toc-fixed{position:fixed;top:64px}.toc-widget{padding-left:20px}.toc-widget .toc-title{margin:35px 0 15px 0;padding-left:17px;font-size:1.5rem;font-weight:700;line-height:1.5rem}.toc-widget ol{padding:0;list-style:none}#toc-content ol{padding-left:10px}#toc-content ol li{padding-left:10px}#toc-content .toc-link:hover{color:#42b983;font-weight:700;text-decoration:underline}#toc-content .toc-link::before{background-color:transparent;max-height:25px}#toc-content .is-active-link{color:#42b983}#toc-content .is-active-link::before{background-color:#42b983}#floating-toc-btn{position:fixed;right:20px;bottom:76px;padding-top:15px;margin-bottom:0;z-index:998}#floating-toc-btn .btn-floating{width:48px;height:48px}#floating-toc-btn .btn-floating i{line-height:48px;font-size:1.4rem}</style><div class="row"><div id="main-content" class="col s12 m12 l9"><div id="artDetail"><div class="card"><div class="card-content article-info"><div class="row tag-cate"><div class="col s7"><div class="article-tag"><a href="/tags/python/" target="_blank"><span class="chip bg-color">python</span> </a><a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%EF%BC%8C%E7%88%AC%E8%99%AB/" target="_blank"><span class="chip bg-color">数据分析，爬虫</span></a></div></div><div class="col s5 right-align"><div class="post-cate"><i class="fa fa-bookmark fa-fw icon-category"></i> <a href="/categories/%E5%A4%A7%E4%BD%9C%E4%B8%9A/" class="post-category" target="_blank">大作业</a></div></div></div><div class="post-info"><div class="post-date info-break-policy"><i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp; 2022-08-30</div><div class="post-author info-break-policy"><i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp; xhsioi</div><div class="info-break-policy"><i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp; 3.2k</div><div class="info-break-policy"><i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp; 13 分</div><div id="busuanzi_container_page_pv" class="info-break-policy"><i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp; <span id="busuanzi_value_page_pv"></span></div></div></div><hr class="clearfix"><div class="card-content article-card-content"><div id="articleContent"><h1 id="作业一实验报告"><a href="#作业一实验报告" class="headerlink" title="作业一实验报告"></a>作业一实验报告</h1><h2 id="重要的库"><a href="#重要的库" class="headerlink" title="重要的库"></a>重要的库</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">from random import random
+
+import pandas as pd
+import numpy as np
+import get_data as crawlers
+from itertools import chain
+
+from pyecharts.globals import SymbolType
+from pyecharts.charts import Bar
+from pyecharts.charts import Pie
+from pyecharts.charts import Map
+from pyecharts.charts import Line, Grid, Liquid, WordCloud
+from pyecharts.options.global_options import ThemeType
+from pyecharts.commons.utils import JsCode
+from pyecharts import options as opts
+import random<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="数据爬取"><a href="#数据爬取" class="headerlink" title="数据爬取"></a>数据爬取</h2><p>根据题干要求，爬取百度百科中乘风破浪的姐姐第二季所有嘉宾的词条信息以及对应外链的相关信息。整体的步骤如下：</p><ul><li>获取参演嘉宾的html代码；</li><li>遍历每个参演嘉宾对应的html代码，保存每个嘉宾的基本信息，形成嘉宾名单；</li><li>根据保存的外链，爬取每个嘉宾对应百度百科的词条基本信息；</li><li>进行数据预处理，整合所有嘉宾的数据；</li></ul><h4 id="获取对应的html"><a href="#获取对应的html" class="headerlink" title="获取对应的html"></a>获取对应的html</h4><p>这一部分使用的BeautifulSoup与requests中的库函数进行数据获取。首先，我们对整个页面中有table标签且属性为”log-set-param”: “table_view”的html代码进行爬取，过程如下：</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) '
+                      'Chrome/67.0.3396.99 Safari/537.36 '
+    }
+html = requests.get(url, headers=headers)
+html.encoding = "utf-8"
+bs = BeautifulSoup(html.text, "html.parser")
+results = []
+# print(bs)
+tables = bs.find_all('table', {"log-set-param": "table_view"})<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>然后对tables进行遍历，找到titles中所需的table，即”竞演嘉宾”，”助阵嘉宾”，“制作团”：</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">for table in tables:
+table_titles = table.find_previous('div').find_all('h3') #找到对应表格的标题
+for table_title in table_titles:
+temp = [t.extract() for t in table_title('span')]
+if table_title.text in titles:
+results.append(table)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>此时的results包含所求的嘉宾名单html代码。</p><h4 id="获取所有嘉宾名单以及信息"><a href="#获取所有嘉宾名单以及信息" class="headerlink" title="获取所有嘉宾名单以及信息"></a>获取所有嘉宾名单以及信息</h4><p>只是获取对应的table是不够的，因此需要进一步处理。根据三个table中嘉宾数据位于的标签不同，这一部分将会分成两部分：</p><ul><li>“竞演嘉宾”, “助阵嘉宾”数据提取；</li><li>“制作团”数据提取；</li></ul><p>对于利用tr标签提取的数据，遍历表格内的每一个tr标签，取每个tr标签中的第一个td标签即可：</p><p><img src="https://github.com/xhsioi/blog-img/blob/main/python%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E8%AF%BE%E7%A8%8B%E4%BD%9C%E4%B8%9A/%E5%9B%BE%E7%89%87%201.png?raw=true"></p><p>相关代码如下：</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">def getData_in_tr(tables, titles):
+    temp_result = []
+    for table in tables:
+        trs = table.find_all('tr')
+        for tr in trs[1:]: #去除表格标题
+            tds = tr.find_all('td')
+            if tds[0].text not in titles:
+                temp_result.append(tds[0])
+    return calculate(temp_result)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>对于利用td标签提取的数据，遍历并存储每一个td标签：</p><p><img src="https://github.com/xhsioi/blog-img/blob/main/python%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E8%AF%BE%E7%A8%8B%E4%BD%9C%E4%B8%9A/%E5%9B%BE%E7%89%87%202.png?raw=true"></p><p>相关代码如下：</p><pre class="line-numbers language-none"><code class="language-none">def getData_in_td(tables):
+    temp_result = []
+    for table in tables:
+        trs = table.find_all('tr')
+        for tr in trs[:-1]: #去除表格最后一行的注释
+            tds = tr.find_all('td')
+            for td in tds:
+                temp_result.append(td)
+    return calculate(temp_result)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>接着根据获取到的数据，爬取对应嘉宾相关链接中的信息，这里爬取的是每个嘉宾基本信息中表格的全部信息，步骤如下：</p><ul><li>将获得的数据中href对应的链接提取出来；</li><li>爬取div标签，属性为’class’: ‘basic-info J-basic-info cmn-clearfix’的html代码；</li><li>对内部的dt，dd标签进行遍历，其中dt.text作为key，dd.text作为value，形成字典；</li><li>在遍历过程中，保存对应链接中的图片留为备用；</li><li>将字典数据进行汇总，转化为DataFrame，获得明星名单；</li></ul><p>calculate(temp_result)函数的相关代码如下：</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">stars = []
+headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) '
+                      'Chrome/67.0.3396.99 Safari/537.36 '
+}
+for tr in temp_result:
+	star = {}
+    star["link"] = 'https://baike.baidu.com' + tr.find('a').get('href')
+    html = requests.get(star["link"], headers=headers)
+    html.encoding = "utf-8"
+    bs = BeautifulSoup(html.text, "html.parser")
+    result = bs.find('div', {'class': 'basic-info J-basic-info cmn-clearfix'})
+    dt = result.find_all('dt')
+    dd = result.find_all('dd')
+    item = 0
+    for t in dt:
+    	index = "".join(t.text.split())
+        star[index] = dd[item].text.strip()
+        item += 1
+    stars.append(star)
+    get_pic(star['link'], star['中文名'], bs) # 获取对应链接中嘉宾图片
+result_answer = pd.DataFrame(stars)
+return result_answer<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="获取嘉宾图片"><a href="#获取嘉宾图片" class="headerlink" title="获取嘉宾图片"></a>获取嘉宾图片</h4><p>根据嘉宾的相关链接，爬取img标签属性为{‘alt’: name}或者{‘class’: ‘picture’}的src属性，调用pic_check函数进行链接筛选，得到图片链接，将图片保存到指定文件夹。</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">def pic_check(pics):
+    urls = []
+    for pic in pics:
+        url = pic.get('src')
+        if url is None:
+            continue
+        if url[:6] == 'https:':
+            urls.append(url)
+            print(url)
+
+    return urls<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h2><p>数据处理部分较为简单，上一部分将数据转为DataFrame格式进行保存，因此只需要构建一个process对象，调用pre_processing()函数进行处理。</p><p>对于pre_processing()函数的内部实现，主要是实现了以下功能：</p><ul><li>去除数据中多余符号；</li><li>修改columns中存在的格式问题；</li></ul><p>最后，将得到的数据保存为’work/data/result_1.csv’。</p><h2 id="数据可视化分析"><a href="#数据可视化分析" class="headerlink" title="数据可视化分析"></a>数据可视化分析</h2><p>本次大作业使用的可视化库为pyecharts，Echarts是一个由百度开源的商业级数据图表，它是一个纯JavaScript的图表库，可以为用户提供直观生动，可交互，可高度个性化定制的数据可视化图表，赋予了用户对数据进行挖掘整合的能力，因此，我们可以定义：pyecharts库是一个用于生成 Echarts 图表的类库。</p><h4 id="pyecharts及相关库安装"><a href="#pyecharts及相关库安装" class="headerlink" title="pyecharts及相关库安装"></a>pyecharts及相关库安装</h4><pre class="line-numbers language-none"><code class="language-none"># 在pycharm的终端中进行安装
+pip install pyecharts
+pip install echarts-china-provinces-pypkg
+pip install snapshot-selenium -i http://pypi.douban.com/simple --tru
+sted-host pypi.douban.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="嘉宾名单词云化展示"><a href="#嘉宾名单词云化展示" class="headerlink" title="嘉宾名单词云化展示"></a>嘉宾名单词云化展示</h4><p><strong>对应函数：process_list(self)</strong></p><p>首先提取data中的’中文名‘属性，进行数据的初步处理，想要利用词云进行可视化，利用随机数确定每一位嘉宾的权重。</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">data = self.data
+result = {}
+df = data['中文名']
+for name in df:
+	result[name] = str(random.randint(10, 1000))
+result = [(a, b) for a, b in result.items()]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>进行词云绘图，将结果保存为”work/htmls/嘉宾名单.html”：</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">word_cloud = (
+            WordCloud(init_opts=opts.InitOpts(theme=ThemeType.WONDERLAND))
+                .add("嘉宾展示", data_pair=result, word_size_range=[10, 70])
+                .set_global_opts(
+                title_opts=opts.TitleOpts(
+                    title="嘉宾名单", subtitle="xhsioi", title_textstyle_opts=opts.TextStyleOpts(font_size=23)
+                )
+            )
+        )<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>最后得到如下可视化结果，鼠标悬停于对应姓名可以显示其对应的权重，这里只是部分名单显示，调节字体大小参数从而获得整体的名单。</p><p><img src="https://github.com/xhsioi/blog-img/blob/main/python%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E8%AF%BE%E7%A8%8B%E4%BD%9C%E4%B8%9A/%E5%9B%BE%E7%89%87%203.png?raw=true"></p><h4 id="嘉宾职业统计"><a href="#嘉宾职业统计" class="headerlink" title="嘉宾职业统计"></a>嘉宾职业统计</h4><p><strong>对应函数：process_jobs(self)</strong></p><p>首先提取data中的’职业‘属性，利用正则表达式去除各个职业之间的分隔符以及nan元素，同时将所有的职业汇总为list，对list中的职业进行计数，得到关于嘉宾职业的计数。</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">data = self.data
+data['职业'].replace(' ', '', regex=True)
+df = data['职业'].str.split('、|，', expand=True)
+jobs = list(set(chain.from_iterable(df.drop_duplicates().values.tolist())))
+jobs = list(filter(None, jobs))
+jobs.remove(np.nan)
+works = data['职业'].astype(str).to_list()
+cal = np.zeros(len(jobs))
+for i in works:
+	for j in range(0, len(jobs)):
+		if jobs[j] in i:
+            cal[j] = cal[j] + 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>绘制饼状图，将结果保存为”work/htmls/嘉宾职业统计.html”：</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">pie = (
+            Pie().add('', [list(z) for z in zip(jobs, cal)], radius=["30%", "65%"])
+                .set_series_opts(label_opts=opts.LabelOpts(formatter="{b}:{d}%"))
+        )<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>得到如下的可视化结果，鼠标悬停于对应模块，可以获取当前职业的人数：</p><p><img src="https://github.com/xhsioi/blog-img/blob/main/python%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E8%AF%BE%E7%A8%8B%E4%BD%9C%E4%B8%9A/%E5%9B%BE%E7%89%87%204.png?raw=true"></p><p>从职业分布可以看出，职业是演员、歌手以及主持人的嘉宾占比较高，分别占比41.67%，30.55%，10.18%；职业是创意总监、媒体人、词曲创作者的嘉宾占比最低，均为0.92%。演员、歌手以及主持人往往被大众所熟知，制作方抓住了这一点，从选择综艺角色这一方面下了功夫。从职业的角度分析，不仅体现出制作组选角的策略，同时也暗含了大众对于明星的印象，即相较于其他明星，作为演员、歌手的姐姐们更加外向、自信、充满激情和干劲，更加适合这种综艺节目。</p><h4 id="嘉宾星座统计"><a href="#嘉宾星座统计" class="headerlink" title="嘉宾星座统计"></a>嘉宾星座统计</h4><p><strong>对应函数：process_constellation(self)</strong></p><p>首先提取data中的’星座‘属性，经过处理后得到星座list，对星座进行计数得到对应字典。</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">constellations = list(set(data['星座'].astype(str).drop_duplicates().values.tolist()))
+constellations = list(filter(None, constellations))
+constellations.remove('nan')
+constellations = [x for x in constellations if len(x) == 3]
+temps = data['星座'].astype(str).to_list()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>绘制柱状图，将结果保存为”work/htmls/嘉宾星座统计.html”：</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">bar = (           Bar(init_opts=opts.InitOpts(theme=ThemeType.MACARONS)).add_xaxis(constellations).add_yaxis("数量统计", cal)
+                .set_global_opts(
+                title_opts=opts.TitleOpts(title="嘉宾星座统计", subtitle="xhsioi"),
+                legend_opts=opts.LegendOpts(pos_left='right')
+            )
+        )<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>得到如下的可视化结果：</p><p><img src="https://github.com/xhsioi/blog-img/blob/main/python%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E8%AF%BE%E7%A8%8B%E4%BD%9C%E4%B8%9A/%E5%9B%BE%E7%89%87%205.png?raw=true"></p><p>从嘉宾星座统计可以看出，白羊座人数最多，其次是金牛座、天蝎座，在节目中，她们体现出了特有的强烈的好奇心、坚强的意志力，不服输和冒险犯难、创新求变的精神，这与他们星座的性格特点息息相关。同时我们可以看到，射手座和双鱼座的嘉宾较少，正好照应了综艺的主题——乘风破浪的姐姐，双鱼座和射手座相较于其他星座更容易受环境影响，缺乏理性，多愁善感，优容寡断，很明显是不适合这档综艺的。这里再一次体现了节目组选角的巧妙：拉入较多的乐观向上、好奇心满满的姐姐们，带动其他少数姐姐们一同乘风破浪。</p><h4 id="嘉宾出生地统计"><a href="#嘉宾出生地统计" class="headerlink" title="嘉宾出生地统计"></a>嘉宾出生地统计</h4><p><strong>对应函数：process_born(self)</strong></p><p>首先提取data中的出生地信息，构建包含全国省市的check_areas，进行出生地计数：</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">check_areas = ['河北', '山西', '辽宁', '吉林', '黑龙江', '江苏', '浙江', '安徽', '福建', '江西', '山东', '河南', '湖北', '湖南', '广东', '海南',
+                       '四川', '贵州', '云南', '陕西', '甘肃', '青海', '台湾',
+                       '内蒙古', '广西', '西藏', '宁夏', '新疆',
+                       '北京', '天津', '上海', '重庆',
+                       '香港', '澳门',
+                       '其他']
+dff = data['出生地'].values.tolist()
+flag = True
+for i in dff:
+	for j in range(0, len(check_areas)):
+		if check_areas[j] in str(i):
+			cal[j] = cal[j] + 1
+			flag = False
+		if flag:
+			flag = True
+			cal[len(check_areas) - 1] = cal[len(check_areas) - 1] + 1
+cal = [str(x) for x in cal]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>基于中国地图绘制出生地热力图，保存为”work/htmls/嘉宾出生地统计.html”，鼠标悬停在某一区域会显示对应的人数，同时可以调节左侧滑块：</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">mapp = (
+            Map().add("出生地", [list(z) for z in zip(check_areas, cal)], "china")
+                .set_global_opts(
+                title_opts=opts.TitleOpts(title="嘉宾出生地分布", subtitle="xhsioi"),
+                visualmap_opts=opts.VisualMapOpts(max_=6)
+            )
+        )<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>可视化结果如下：</p><p><img src="https://github.com/xhsioi/blog-img/blob/main/python%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E8%AF%BE%E7%A8%8B%E4%BD%9C%E4%B8%9A/%E5%9B%BE%E7%89%87%206.png?raw=true"></p><p>从出生地统计可以发现，嘉宾大多数来自中国的中东部地区，其中四川、湖南、山东、辽宁的嘉宾最多，在这四个省中，四川省的嘉宾数量一枝独秀，达到最多的7个人，其次就是湖南。可以看出，嘉宾中的湘妹子、川妹子的数量是最多的。此外，西部的新疆、西藏、青海、甘肃的嘉宾最少，都为0，这一部分的空缺制作组可以在未来的节目中补充完整。</p><h4 id="嘉宾年龄分布"><a href="#嘉宾年龄分布" class="headerlink" title="嘉宾年龄分布"></a>嘉宾年龄分布</h4><p><strong>对应函数：process_age(self)</strong></p><p>首先提取data中的出生日期数据，然后筛选出不满足的数据，最后得到嘉宾的出生年份，根据出生年份得到嘉宾年龄，从而进行统计，得到年龄统计数据：</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">df['年'] = df['出生日期'].map(lambda x: x.split('年')[0])
+years = df['年'].values.tolist()
+years = [x for x in years if len(x) == 4]
+ages = [2022 - int(x) for x in years]
+result = {}
+for i in ages:
+	result[i] = result.get(i, 0) + 1
+temp = [[a, b] for a, b in result.items()]
+temp = sorted(temp, key=(lambda x: x[0]))
+ages = [str(x[0]) for x in temp]
+number = [str(x[1]) for x in temp]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>绘制曲线图，得到如下结果：</p><p><img src="https://github.com/xhsioi/blog-img/blob/main/python%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E8%AF%BE%E7%A8%8B%E4%BD%9C%E4%B8%9A/%E5%9B%BE%E7%89%87%207.png?raw=true"></p><p>整体上来看，大多数嘉宾的年龄都是30+，大多数集中于33-37岁之间，35岁的嘉宾数量最多，达到了8人；29-30岁和47-55岁的嘉宾数量最少。以上的分析说明大多数的嘉宾正值壮年，充满活力，成熟且有魅力，符合节目主题。当然，40岁以上的嘉宾也有很多，占所有嘉宾的30%左右，刨除制作图案成员的影响，我们可以看出姐姐们整体上看都处于黄金年龄，充满知性和感性。</p><h4 id="嘉宾血型统计"><a href="#嘉宾血型统计" class="headerlink" title="嘉宾血型统计"></a>嘉宾血型统计</h4><p><strong>对应函数：process_blood(self)</strong></p><p>首先提取data中的血型信息，清洗之后对血型进行计数：</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">dff = df['血型'].values.tolist()
+dff = [x.strip() for x in dff if x != 'nan']
+result = {}
+for i in dff:
+	result[i] = result.get(i, 0) + 1
+temp = [[a, b] for a, b in result.items()]
+blood_type = [x[0] for x in temp]
+number = [x[1] for x in temp]
+blood_percent = [round(x / sum(number), 4) for x in number]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>绘制对应血型的水球图：</p><p><img src="https://github.com/xhsioi/blog-img/blob/main/python%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E8%AF%BE%E7%A8%8B%E4%BD%9C%E4%B8%9A/%E5%9B%BE%E7%89%87%208.png?raw=true"></p><p><img src="https://github.com/xhsioi/blog-img/blob/main/python%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E8%AF%BE%E7%A8%8B%E4%BD%9C%E4%B8%9A/%E5%9B%BE%E7%89%87%209.png?raw=true"></p><p>从血型水球图可以看出，O型血的嘉宾数量最多，AB型血的数量最少。O型血的人更加富有干劲，在办事的时候会全力以赴，越是困难得到状况，他会越感觉富有挑战性；与之形成对比的AB型血虽然显的更为成熟，但往往和其他人的距离感和疏离感特别强。因此，选择更为热情奔放的O型血嘉宾，不仅照应了乘风破浪的主题，而且提高了节目的趣味性。</p><p>可视化结果汇总于”合并.html”</p></div><hr><style>#reward{margin:40px 0;text-align:center}#reward .reward-link{font-size:1.88rem}#reward .btn-floating:hover{box-shadow:0 6px 12px rgba(0,0,0,.2),0 5px 15px rgba(0,0,0,.2)}#rewardModal{width:320px;height:350px}#rewardModal .reward-title{margin:15px auto;padding-bottom:5px}#rewardModal .modal-content{padding:10px}#rewardModal .close{position:absolute;right:15px;top:15px;color:rgba(0,0,0,.5);font-size:1.3rem;line-height:20px;cursor:pointer}#rewardModal .close:hover{color:#ef5350;transform:scale(1.3);-moz-transform:scale(1.3);-webkit-transform:scale(1.3);-o-transform:scale(1.3)}#rewardModal .reward-tabs{margin:0 auto;width:210px}.reward-tabs .tabs{height:38px;margin:10px auto;padding-left:0}.reward-content ul{padding-left:0!important}.reward-tabs .tabs .tab{height:38px;line-height:38px}.reward-tabs .tab a{color:#fff;background-color:#ccc}.reward-tabs .tab a:hover{background-color:#ccc;color:#fff}.reward-tabs .wechat-tab .active{color:#fff!important;background-color:#22ab38!important}.reward-tabs .alipay-tab .active{color:#fff!important;background-color:#019fe8!important}.reward-tabs .reward-img{width:210px;height:210px}</style><div id="reward"><a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a><div id="rewardModal" class="modal"><div class="modal-content"><a class="close modal-close"><i class="fa fa-close"></i></a><h4 class="reward-title">欢迎投喂~</h4><div class="reward-content"><div class="reward-tabs"><ul class="tabs row"><li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li><li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li></ul><div id="alipay"><img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码"></div><div id="wechat"><img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码"></div></div></div></div></div></div><script>$(function(){$(".tabs").tabs()})</script><link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css"><div id="article-share"><div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div></div><script src="/libs/share/js/social-share.min.js"></script><div class="reprint" id="reprint-statement"><p class="reprint-tip"><i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp; <span>转载规则</span></p><div class="center-align"><a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by/4.0/deed.zh"><img alt="" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a></div><br><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">《python数据分析大作业（一）》 </span>由 <a xmlns:cc="http://creativecommons.org/ns#" href="/2022/08/30/python-shu-ju-fen-xi-da-zuo-ye-yi/" property="cc:attributionName" rel="cc:attributionURL">xhsioi </a>采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by/4.0/deed.zh">知识共享署名 4.0 国际许可协议 </a>进行许可。</div><script async defer>document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }</script></div></div><article id="prenext-posts" class="prev-next articles"><div class="row article-row"><div class="article col s12 m6" data-aos="fade-up"><div class="article-badge left-badge text-color"><i class="fa fa-chevron-left"></i>&nbsp;上一篇</div><div class="card"><a href="/2022/08/30/python-shu-ju-fen-xi-da-zuo-ye-er/"><div class="card-image"><img src="/medias/featureimages/5.jpg" class="responsive-img" alt="python数据分析大作业（二）"> <span class="card-title">python数据分析大作业（二）</span></div></a><div class="card-content article-content"><div class="summary block-with-text">作业二实验报告重要的库import requests from bs4 import BeautifulSoup import os import pandas as pd import random from pyecharts imp</div><div class="publish-info"><span class="publish-date"><i class="fa fa-clock-o fa-fw icon-date"></i>2022-08-30 </span><span class="publish-author"><i class="fa fa-bookmark fa-fw icon-category"></i> <a href="/categories/%E5%A4%A7%E4%BD%9C%E4%B8%9A/" class="post-category" target="_blank">大作业</a></span></div></div><div class="card-action article-tags"><a href="/tags/python/" target="_blank"><span class="chip bg-color">python</span> </a><a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%EF%BC%8C%E7%88%AC%E8%99%AB/" target="_blank"><span class="chip bg-color">数据分析，爬虫</span></a></div></div></div><div class="article col s12 m6" data-aos="fade-up"><div class="article-badge right-badge text-color">下一篇&nbsp;<i class="fa fa-chevron-right"></i></div><div class="card"><a href="/2021/04/12/jie-he-mei-sai-ti-mu-de-tu-lun-xue-xi/"><div class="card-image"><img src="/medias/featureimages/27.jpg" class="responsive-img" alt="结合美赛题目的图论学习"> <span class="card-title">结合美赛题目的图论学习</span></div></a><div class="card-content article-content"><div class="summary block-with-text">结合美赛题目的图论学习导入什么是图论？ 图论(Graph Theory)是离散数学的一个分支。它以图为研究对象。图论中的图是由若干给定的点及连接两点的线所构成的图形，这种图形通常用来描述某些事物之间的某种特定关系，用点代表事物，用连接两点的</div><div class="publish-info"><span class="publish-date"><i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-12 </span><span class="publish-author"><i class="fa fa-bookmark fa-fw icon-category"></i> <a href="/categories/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/" class="post-category" target="_blank">学习总结</a></span></div></div><div class="card-action article-tags"><a href="/tags/%E8%87%AA%E6%88%91%E6%8F%90%E5%8D%87/" target="_blank"><span class="chip bg-color">自我提升</span> </a><a href="/tags/%E4%BE%8B%E4%BC%9A/" target="_blank"><span class="chip bg-color">例会</span></a></div></div></div></div></article></div><script>$("#articleContent").on("copy",function(e){var n,t,o,i;void 0!==window.getSelection&&((""+(n=window.getSelection())).length<Number.parseInt("120")||(t=document.getElementsByTagName("body")[0],(o=document.createElement("div")).style.position="absolute",o.style.left="-99999px",t.appendChild(o),o.appendChild(n.getRangeAt(0).cloneContents()),"PRE"===n.getRangeAt(0).commonAncestorContainer.nodeName&&(o.innerHTML="<pre>"+o.innerHTML+"</pre>"),i=document.location.href,o.innerHTML+='<br />来源: cout>>.<<cin<br />作者: xhsioi<br />链接: <a href="'+i+'">'+i+"</a><br />本文章著作权归作者所有，任何形式的转载都请注明出处。",n.selectAllChildren(o),window.setTimeout(function(){t.removeChild(o)},200)))})</script></div><div id="toc-aside" class="expanded col l3 hide-on-med-and-down"><div class="toc-widget"><div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div><div id="toc-content"></div></div></div></div><div id="floating-toc-btn" class="hide-on-med-and-down"><a class="btn-floating btn-large bg-color"><i class="fa fa-list"></i></a></div><script src="/libs/tocbot/tocbot.min.js"></script><script>$(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });</script></main><footer class="page-footer bg-color"><div class="container row center-align"><div class="col s12 m8 l8 copy-right">&nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp; <span class="white-color">40.3k</span><br><span id="sitetime"></span><br><span id="busuanzi_container_site_pv" style="display:none"><i class="fa fa-heart-o"></i> 本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span> </span><span id="busuanzi_container_site_uv" style="display:none">人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.</span></div><div class="col s12 m4 l4 social-link social-statis"><a href="https://github.com/xhsioi" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50"><i class="fa fa-github"></i> </a><a href="mailto:m18846242315@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50"><i class="fa fa-envelope-open"></i> </a><a href="https://zhihu.com/people/xhsioi" class="tooltipped" target="_blank" data-tooltip="访问我的知乎" data-position="top" data-delay="50"><i class="fa fa-inverse">知</i> </a><a href="http://wpa.qq.com/msgrd?v=3&uin=2848220300&site=qq&menu=yes" class="tooltipped" target="_blank" data-tooltip="访问我的知乎" data-position="top" data-delay="50"><i class="fa fa-qq"></i></a></div></div></footer><div class="progress-bar"></div><script>$(document).ready(function(){var e=setInterval(function(){"none"!=document.getElementById("busuanzi_container_site_pv").style.display&&($("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html())+n),clearInterval(e));"none"!=$("#busuanzi_container_site_pv").css("display")&&($("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html())+t),clearInterval(e))},50),n=8e4,t=2e4})</script><script language="javascript">function siteTime(){window.setTimeout("siteTime()",1e3);var e=36e5,t=24*e,o=new Date,i=o.getFullYear(),a=o.getMonth()+1,n=o.getDate(),r=o.getHours(),l=o.getMinutes(),s=o.getSeconds(),M=Date.UTC(2021,10,5,12,0,0),g=Date.UTC(i,a,n,r,l,s)-M,m=Math.floor(g/31536e6),T=Math.floor(g/t-365*m),f=Math.floor((g-(365*m+T)*t)/e),h=Math.floor((g-(365*m+T)*t-f*e)/6e4),u=Math.floor((g-(365*m+T)*t-f*e-6e4*h)/1e3);document.getElementById("sitetime").innerHTML="本站已运行 "+m+" 年 "+T+" 天 "+f+" 小时 "+h+" 分钟 "+u+" 秒"}siteTime()</script><link rel="stylesheet" href="/css/prism.css"><script src="/js/prism.js" async></script><div id="searchModal" class="modal"><div class="modal-content"><div class="search-header"><span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span> <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input"></div><div id="searchResult"></div></div></div><script src="/js/search.js"></script><script type="text/javascript">$(function(){searchFunc("/search.xml","searchInput","searchResult")})</script><div id="backTop" class="top-scroll"><a class="btn-floating btn-large waves-effect waves-light" href="#!"><i class="fa fa-angle-up"></i></a></div><script src="/libs/materialize/materialize.min.js"></script><script src="/libs/masonry/masonry.pkgd.min.js"></script><script src="/libs/aos/aos.js"></script><script src="/libs/scrollprogress/scrollProgress.min.js"></script><script src="/libs/lightGallery/js/lightgallery-all.min.js"></script><script src="/js/matery.js"></script><script type="text/javascript">var st,OriginTitile=document.title;document.addEventListener("visibilitychange",function(){document.hidden?(document.title="Σ(っ °Д °;)っ你给我回来李和鑫！",clearTimeout(st)):(document.title="φ(゜▽゜*)♪你回来辣！",st=setTimeout(function(){document.title=OriginTitile},3e3))})</script><script async src="/libs/others/busuanzi.pure.mini.js"></script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"superSample":2,"position":"left","width":150,"height":300,"hOffset":30,"vOffset":-30},"mobile":{"show":true,"scale":0.6},"react":{"opacity":0.7},"name":{"canvas":"live2dcanvas","div":"live2d-widget"},"dev":{"border":false},"dialog":{"enable":true,"hitokoto":true}});</script></body></html>

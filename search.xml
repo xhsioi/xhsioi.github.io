@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>机器翻译：基础与模型学习笔记</title>
+      <link href="/2023/10/12/ji-qi-fan-yi-ji-chu-yu-mo-xing-xue-xi-bi-ji/"/>
+      <url>/2023/10/12/ji-qi-fan-yi-ji-chu-yu-mo-xing-xue-xi-bi-ji/</url>
+      
+        <content type="html"><![CDATA[<h1 id="机器翻译：基础与模型学习笔记"><a href="#机器翻译：基础与模型学习笔记" class="headerlink" title="机器翻译：基础与模型学习笔记"></a>机器翻译：基础与模型学习笔记</h1><h2 id="机器翻译基础"><a href="#机器翻译基础" class="headerlink" title="机器翻译基础"></a>机器翻译基础</h2><p>现代翻译系统的基础：从数据中自动学习翻译知识，并运用这些知识对新的文本进行翻译。</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202310121327937.png" alt="image-20231012132703519"></p><h3 id="机器翻译的发展历程"><a href="#机器翻译的发展历程" class="headerlink" title="机器翻译的发展历程"></a>机器翻译的发展历程</h3><ul><li>早期：基于书写的规则，存在覆盖范围小、噪声非常敏感的特点；</li><li>发展：基于数据驱动，即统计机器翻译。机器翻译的建模、训练和推断都可以自动地从数据中学习；</li><li>爆发：基于神经网络的深度学习方法，存在诸多的优点：<ul><li>端到端学习不依赖于过多的先验假设，避免了某些短语划分产生的对齐问题；</li><li>表示能力更强，离散化的句子转化为向量表示，更容易处理；</li><li>算力提升形成基础；</li></ul></li></ul><h3 id="机器翻译现状和挑战"><a href="#机器翻译现状和挑战" class="headerlink" title="机器翻译现状和挑战"></a>机器翻译现状和挑战</h3><p>现状：在开放式任务下效果不是很好，无法和人工翻译抗衡。</p><h3 id="机器翻译常见方法"><a href="#机器翻译常见方法" class="headerlink" title="机器翻译常见方法"></a>机器翻译常见方法</h3><h4 id="基于规则的方法"><a href="#基于规则的方法" class="headerlink" title="基于规则的方法"></a>基于规则的方法</h4><p>定义：通过形式文法定义的规则引入源语言和目标语言中的语言学知识，类似于编译器的实现，其基本实现如下图所示，很有编译器前后端的味道。</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202310121351432.png"></p><p>以此为基础，产生了基于转换的方法以及基于中间语言的方法。基于转换的方法就是为每一组特定的源语言和目标语言构建系统，基于上述的词汇层、句法层和语义层实现转换。相较于转换法，中间语言独立于源语言和目标语言，使多个翻译系统实现复用，中间语言方法实现的重要基础使能否充分表达源语言的信息。</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202310121404355.png"></p><p>优点：</p><ol><li>语法和算法分离，便于更改；</li><li>翻译规则的书写颗粒度具有很大的可伸缩性；</li><li>适用的应用场景多，即大规模系统翻译和小规模精细翻译都可以靠更改规则集实现；</li><li>规则方法不存在长距离依赖的问题；</li></ol><p>缺点：规则维护困难、实现效果较差。</p><h4 id="数据驱动的方法"><a href="#数据驱动的方法" class="headerlink" title="数据驱动的方法"></a>数据驱动的方法</h4><p>基于实例的机器翻译实现：构建实例库进行源语言匹配，对错误匹配词语进行单独翻译得到最终结果。</p><p>基于统计的机器翻译实现：适用单语语料学习语言模型，适用双语平行语料学习翻译模型，并使用这些统计模型实现单一过程的建模，基本实现如下图所示：</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202310121436133.png"></p><h3 id="神经机器翻译"><a href="#神经机器翻译" class="headerlink" title="神经机器翻译"></a>神经机器翻译</h3><h2 id="统计语言建模基础"><a href="#统计语言建模基础" class="headerlink" title="统计语言建模基础"></a>统计语言建模基础</h2><h3 id="KL距离和熵"><a href="#KL距离和熵" class="headerlink" title="KL距离和熵"></a>KL距离和熵</h3><p>自信息：代表单一事件发生时包含的信息多少。</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202310121453257.png"></p><p>信息熵：量化整个概率分布中的不稳定性或信息量。</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202310121455230.png"></p><p>KL距离：衡量同一变量不同分布的不同，即<strong>相对熵</strong>。其物理意义是判断相比于适用概率分布P（X）来编码P（X）时信息量增加了多少。</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202310121500372.png"></p><p>交叉熵：当概率分布P（X）固定时，求关于Q的交叉熵的最小值等价于求KL距离的最小值，二者都是用来描述两个分布的差异的。</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202310121508268.png"></p><h3 id="n-gram语言模型"><a href="#n-gram语言模型" class="headerlink" title="n-gram语言模型"></a>n-gram语言模型</h3><p>背景：对于单个词语出现的概率，可以使用频率进行替换。但是如何计算句子出现的概率呢？传统的方法分为两种，一方面统计词串出现的次数，利用<strong>极大似然估计计算P</strong>（低频事件处理不当）；另一方面对多个联合出现的事件进行<strong>独立性假设</strong>，相乘得到最终的结果（破坏单词之间的依赖性）。</p><p>定义：利用条件概率实现，每次预测都只考虑前n-1个历史单词，对应马尔科夫模型。</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202310121527414.png" alt="image-20231012152704557"></p><p>然后需要研究的就是如何计算P(Wm|W1W2…Wm-1)了，如果只是使用条件概率进行估计，很容易出现C(W1W2)=0的情况、或者未出现的未登录词。</p><h4 id="平滑"><a href="#平滑" class="headerlink" title="平滑"></a>平滑</h4><p>定义：在保证概率和为1的情况下，为0概率事件分配一部分概率；</p><p>加法平滑：</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202310121539131.png" alt="加法平滑"></p><p>古德图灵估计：</p><p>重新规定时间发生的次数，原来出现r+1次的统计量设定次数：</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202310121550848.png" alt="image-20231012154947474"></p><h3 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h3><h4 id="长距离依赖问题"><a href="#长距离依赖问题" class="headerlink" title="长距离依赖问题"></a>长距离依赖问题</h4><p>长距离依赖问题根本上是前馈神经网络产生了梯度消失的问题，在机器翻译中的问题就是无法结合之前的语境做出正确的预测。这一点有点像之前在进行vqa论文复现时存在的问题。例如，给出一张绿色香蕉的图片，询问香蕉颜色。由于在训练过程中的数据图片以及fvqa的结果都是黄色香蕉，因此得到了错误的回答。回到长距离依赖问题上。</p><h4 id="分布越尖锐熵越低，分布越均匀熵越高"><a href="#分布越尖锐熵越低，分布越均匀熵越高" class="headerlink" title="分布越尖锐熵越低，分布越均匀熵越高"></a>分布越尖锐熵越低，分布越均匀熵越高</h4><p>对于概率分布而言，取极端的情况，只有两种事件发生，概率分别为0和100%，显然只会发生第二件事，因此这个分布包含的信息就很少，信息熵较低。</p><h4 id="偏置（bias）"><a href="#偏置（bias）" class="headerlink" title="偏置（bias）"></a>偏置（bias）</h4><p>一个英文单词的翻译结果可能往往就是那几个词，不仅要学习这种偏置，还需要避免偏置在测试集的某些特殊情况夏产生错误。</p><h4 id="未登录词（OOV-Word）"><a href="#未登录词（OOV-Word）" class="headerlink" title="未登录词（OOV Word）"></a>未登录词（OOV Word）</h4><p><a href="https://blog.csdn.net/qq_38244371/article/details/92806233">什么是未登录词 Out-of-vocabulary（OOV）?-CSDN博客</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 机器翻译 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 自我提升 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2023年计算机保研经验分享|次九rk8%</title>
       <link href="/2023/10/01/2023-nian-ji-suan-ji-bao-yan-jing-yan-fen-xiang-ci-jiu-rk8/"/>
       <url>/2023/10/01/2023-nian-ji-suan-ji-bao-yan-jing-yan-fen-xiang-ci-jiu-rk8/</url>

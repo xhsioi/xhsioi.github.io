@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>CoLaDa论文阅读笔记</title>
+      <link href="/2023/10/14/colada-lun-wen-yue-du-bi-ji/"/>
+      <url>/2023/10/14/colada-lun-wen-yue-du-bi-ji/</url>
+      
+        <content type="html"><![CDATA[<h1 id="CoLaDa-A-Collaborative-Label-Denoising-Framework-for-Cross-lingual-Named-Entity-Recognition"><a href="#CoLaDa-A-Collaborative-Label-Denoising-Framework-for-Cross-lingual-Named-Entity-Recognition" class="headerlink" title="CoLaDa: A Collaborative Label Denoising Framework for Cross-lingual Named Entity Recognition"></a>CoLaDa: A Collaborative Label Denoising Framework for Cross-lingual Named Entity Recognition</h1><p>本文代码：<a href="https://github.com/microsoft/vert-papers/tree/master/papers/CoLaDa">vert-papers/papers/CoLaDa at master · microsoft/vert-papers (github.com)</a></p><h2 id="常见名词"><a href="#常见名词" class="headerlink" title="常见名词"></a>常见名词</h2><table><thead><tr><th>英文名</th><th>中文名</th><th>具体释义</th></tr></thead><tbody><tr><td>Cross-lingual named entity(NER)</td><td>跨语言命名实体识别</td><td></td></tr><tr><td>knowledge distillation</td><td>知识蒸馏</td><td>轻量化小模型，达到更高的精度和性能，是迁移学习的一种特殊实现</td></tr><tr><td><strong>Co</strong>llaborative <strong>La</strong>bel <strong>D</strong>enoising Fr<strong>a</strong>mework</td><td>协同标签去噪框架</td><td>本文提出的命名实体识别新方法</td></tr></tbody></table><h2 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h2><h3 id="knowledge-distillation"><a href="#knowledge-distillation" class="headerlink" title="knowledge distillation"></a>knowledge distillation</h3><p><a href="https://zhuanlan.zhihu.com/p/258390817">一分钟带你认识深度学习中的知识蒸馏 - 知乎 (zhihu.com)</a></p><p>在训练集上构建teacher模型，然后对student模型进行监督训练：</p><ul><li>离线蒸馏：两个模型的训练过程分离，teacher模型的精度要远高于student模型的训练精度，这里的teacher模型只起到了监督惩罚的作用；</li><li>半监督蒸馏：对部分未标记的数据通过teacher模型进行预测标记，作为student的训练数据提升精度；</li><li>自监督蒸馏：每个epoch训练过程中都以历史数据进行蒸馏；</li></ul><p>本文介绍了传统模型中利用知识蒸馏为student模型提供数据，缓解稀缺问题。在产生伪标签作为新模型的输入时，往往会加入一些噪音，因此本文提出了新的去噪框架。</p><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>跨语言命名实体识别过去的工作关注于使用已标记的数据或者通过teacher模型预测得到的伪标签数据进行student模型的训练。伪标签存在一些噪音，会对蒸馏后的模型精度产生影响，因此本文提出了一种协同标签去噪框架，利用标签在邻域中的一致性进行计算，在多个数据集上效果较好。</p><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 论文研读 </tag>
+            
+            <tag> 自我提升 </tag>
+            
+            <tag> 机器翻译 </tag>
+            
+            <tag> 实体命名识别 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>机器翻译：基础与模型学习笔记——机器翻译基础</title>
       <link href="/2023/10/12/ji-qi-fan-yi-ji-chu-yu-mo-xing-xue-xi-bi-ji/"/>
       <url>/2023/10/12/ji-qi-fan-yi-ji-chu-yu-mo-xing-xue-xi-bi-ji/</url>

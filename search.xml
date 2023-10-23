@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>机器翻译：基础与模型学习笔记——神经机器翻译</title>
+      <link href="/2023/10/23/ji-qi-fan-yi-ji-chu-yu-mo-xing-xue-xi-bi-ji-shen-jing-ji-qi-fan-yi/"/>
+      <url>/2023/10/23/ji-qi-fan-yi-ji-chu-yu-mo-xing-xue-xi-bi-ji-shen-jing-ji-qi-fan-yi/</url>
+      
+        <content type="html"><![CDATA[<h1 id="机器翻译：基础与模型学习笔记——神经机器翻译"><a href="#机器翻译：基础与模型学习笔记——神经机器翻译" class="headerlink" title="机器翻译：基础与模型学习笔记——神经机器翻译"></a>机器翻译：基础与模型学习笔记——神经机器翻译</h1><h2 id="人工神经网络和神经语言建模"><a href="#人工神经网络和神经语言建模" class="headerlink" title="人工神经网络和神经语言建模"></a>人工神经网络和神经语言建模</h2><h3 id="深度学习与人工神经网络"><a href="#深度学习与人工神经网络" class="headerlink" title="深度学习与人工神经网络"></a>深度学习与人工神经网络</h3><p>提到神经网络，绕不开的两个关键词便是<strong>深度学习</strong>和<strong>分布式表示</strong>。分布式早期的思想是“一个复杂系统任何部分的输入都应该是多个特征共同表示的结果”。也就是说，通过将单词、短语等数据转化成向量作为模型的输入，从而代表整个个体。</p><p>对数据进行分布式处理后，利用深度神经网络进行<strong>端到端的学习</strong>，形成输入-特征提取-分类-输出的流水线，性能优于传统模型，最新的transformer对常用的PTB数据集上的困惑度结果进步巨大</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202310231355964.png"></p><h3 id="神经网络基础"><a href="#神经网络基础" class="headerlink" title="神经网络基础"></a>神经网络基础</h3><p>想要做到端到端的学习，一定要统一输入的格式，也就是输入数据的范数相同。范数的常见表达式如下：<br>$$<br>\begin{array}{rcl}l_p(\mathbf{x})&amp;=&amp;\left|\mathbf{x}\right|<em>p\&amp;=&amp;\left(\sum</em>{i=1}^n|x_i|^p\right)^{\frac1p}\end{array}<br>$$<br>其中最为常见的就是l1和l2范数（欧几里得范数）。广义上将，范数是将向量映射到非负值的函数，起作用是衡量向量x到坐标原点的距离。当然对矩阵进行大小衡量时，Frobenius范数更加适用。</p><p>下面对特征提取+分类部分进行分析。从初始的感知机到多层神经网络，激活函数起到了重要的作用。常见的激活函数类型如下所示：</p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202310231424184.png" style="zoom:80%;"><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202310231425118.png" style="zoom:80%;"><ul><li>Softplus：可以看作是ReLU函数的平滑，和脑神经元的激活频率函数相似</li></ul><h2 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h2><h3 id="Frobenius范数"><a href="#Frobenius范数" class="headerlink" title="Frobenius范数"></a>Frobenius范数</h3><p>常用于衡量矩阵的大小，得到矩阵到原点的距离。<br>$$<br>|A|<em>F=\sqrt{\sum</em>{i,j=1}^n|a_{ij}|^2}.<br>$$</p><h2 id="Future-Work"><a href="#Future-Work" class="headerlink" title="Future Work"></a>Future Work</h2><ul><li>不同方法在常用PTB数据集上的困惑度结果进行处理</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 机器翻译 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 自我提升 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>机器翻译：基础与模型学习笔记——统计机器翻译</title>
       <link href="/2023/10/16/ji-qi-fan-yi-ji-chu-yu-mo-xing-xue-xi-bi-ji-tong-ji-ji-qi-fan-yi/"/>
       <url>/2023/10/16/ji-qi-fan-yi-ji-chu-yu-mo-xing-xue-xi-bi-ji-tong-ji-ji-qi-fan-yi/</url>

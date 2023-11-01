@@ -1,0 +1,475 @@
+<!DOCTYPE HTML><html lang="zh-CN"><head><meta charset="utf-8"><meta name="keywords" content="每日一题整理——2023.10, cout&gt;&gt;.&lt;&lt;cin"><meta name="baidu-site-verification" content="fmlEuI34ir"><meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48"><meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7"><meta name="description" content="每日一题整理——2023.1010.12
+Find in Mountain Array给出一个山数组，找出给定元素的最小序号，需要注意的是山数组的形式为get()形式，且使用的次数不能超过100次。
+
+我的思路：看了一下数据范围，10^4，"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><meta name="renderer" content="webkit|ie-stand|ie-comp"><meta name="mobile-web-app-capable" content="yes"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><title>每日一题整理——2023.10 | cout&gt;&gt;.&lt;&lt;cin</title><link rel="icon" type="image/png" href="/favicon.png"><link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css"><link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css"><link rel="stylesheet" type="text/css" href="/libs/aos/aos.css"><link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css"><link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css"><link rel="stylesheet" type="text/css" href="/css/matery.css"><link rel="stylesheet" type="text/css" href="/css/my.css"><style type="text/css"></style><script src="/libs/jquery/jquery-2.2.0.min.js"></script><script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?ce84511d3df71640a9378a69f6293044";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><script>document.write('<script src="https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba" id="sozz"><\/script>')</script><meta name="generator" content="Hexo 5.4.0"><style>mjx-container[jax=SVG]{direction:ltr}mjx-container[jax=SVG]>svg{overflow:visible}mjx-container[jax=SVG][display=true]{display:block;text-align:center;margin:1em 0}mjx-container[jax=SVG][justify=left]{text-align:left}mjx-container[jax=SVG][justify=right]{text-align:right}g[data-mml-node=merror]>g{fill:red;stroke:red}g[data-mml-node=merror]>rect[data-background]{fill:#ff0;stroke:none}g[data-mml-node=mtable]>line[data-line]{stroke-width:70px;fill:none}g[data-mml-node=mtable]>rect[data-frame]{stroke-width:70px;fill:none}g[data-mml-node=mtable]>.mjx-dashed{stroke-dasharray:140}g[data-mml-node=mtable]>.mjx-dotted{stroke-linecap:round;stroke-dasharray:0,140}g[data-mml-node=mtable]>svg{overflow:visible}[jax=SVG] mjx-tool{display:inline-block;position:relative;width:0;height:0}[jax=SVG] mjx-tool>mjx-tip{position:absolute;top:0;left:0}mjx-tool>mjx-tip{display:inline-block;padding:.2em;border:1px solid #888;font-size:70%;background-color:#f8f8f8;color:#000;box-shadow:2px 2px 5px #aaa}g[data-mml-node=maction][data-toggle]{cursor:pointer}mjx-status{display:block;position:fixed;left:1em;bottom:1em;min-width:25%;padding:.2em .4em;border:1px solid #888;font-size:90%;background-color:#f8f8f8;color:#000}foreignObject[data-mjx-xml]{font-family:initial;line-height:normal;overflow:visible}.MathJax path{stroke-width:3}mjx-container[display=true]{overflow:auto hidden}mjx-container[display=true]+br{display:none}</style><style>.github-emoji{position:relative;display:inline-block;width:1.2em;min-height:1.2em;overflow:hidden;vertical-align:top;color:transparent}.github-emoji>span{position:relative;z-index:10}.github-emoji .fancybox,.github-emoji img{margin:0!important;padding:0!important;border:none!important;outline:0!important;text-decoration:none!important;user-select:none!important;cursor:auto!important}.github-emoji img{height:1.2em!important;width:1.2em!important;position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;user-select:none!important;cursor:auto!important}.github-emoji-fallback{color:inherit}.github-emoji-fallback img{opacity:0!important}</style></head><body><header class="navbar-fixed"><nav id="headNav" class="bg-color nav-transparent"><div id="navContainer" class="nav-wrapper container"><div class="brand-logo"><a href="/" class="waves-effect waves-light"><img src="/medias/logo.png" class="logo-img" alt="LOGO"> <span class="logo-span">cout>>.<<cin</span></a></div><a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a><ul class="right"><li class="hide-on-med-and-down"><a href="/" class="waves-effect waves-light"><i class="fa fa-home"></i> <span>首页</span></a></li><li class="hide-on-med-and-down"><a href="/tags" class="waves-effect waves-light"><i class="fa fa-tags"></i> <span>标签</span></a></li><li class="hide-on-med-and-down"><a href="/categories" class="waves-effect waves-light"><i class="fa fa-bookmark"></i> <span>分类</span></a></li><li class="hide-on-med-and-down"><a href="/archives" class="waves-effect waves-light"><i class="fa fa-archive"></i> <span>归档</span></a></li><li class="hide-on-med-and-down"><a href="/about" class="waves-effect waves-light"><i class="fa fa-user-circle-o"></i> <span>关于</span></a></li><li class="hide-on-med-and-down"><a href="/friends" class="waves-effect waves-light"><i class="fa fa-address-book"></i> <span>友情链接</span></a></li><li class="hide-on-med-and-down"><a href="/contact" class="waves-effect waves-light"><i class="fa fa-comments"></i> <span>Contact</span></a></li><li><a href="#searchModal" class="modal-trigger waves-effect waves-light"><i id="searchIcon" class="fa fa-search" title="搜索"></i></a></li></ul><div id="mobile-nav" class="side-nav sidenav"><div class="mobile-head bg-color"><img src="/medias/logo.png" class="logo-img circle responsive-img"><div class="logo-name">cout>>.<<cin</div><div class="logo-desc">大连理工大学|软件工程|创中</div></div><ul class="menu-list mobile-menu-list"><li><a href="/" class="waves-effect waves-light"><i class="fa fa-fw fa-home"></i> 首页</a></li><li><a href="/tags" class="waves-effect waves-light"><i class="fa fa-fw fa-tags"></i> 标签</a></li><li><a href="/categories" class="waves-effect waves-light"><i class="fa fa-fw fa-bookmark"></i> 分类</a></li><li><a href="/archives" class="waves-effect waves-light"><i class="fa fa-fw fa-archive"></i> 归档</a></li><li><a href="/about" class="waves-effect waves-light"><i class="fa fa-fw fa-user-circle-o"></i> 关于</a></li><li><a href="/friends" class="waves-effect waves-light"><i class="fa fa-fw fa-address-book"></i> 友情链接</a></li><li><a href="/contact" class="waves-effect waves-light"><i class="fa fa-fw fa-comments"></i> Contact</a></li><li><div class="divider"></div></li><li><a href="https://github.com/xhsioi/xhsioi.github.io" class="waves-effect waves-light" target="_blank"><i class="fa fa-github-square fa-fw"></i>Fork Me</a></li></ul></div></div><style>.nav-transparent .github-corner{display:none!important}.github-corner{position:absolute;z-index:10;top:0;right:0;border:0;transform:scale(1.1)}.github-corner svg{color:#0f9d58;fill:#fff;height:64px;width:64px}.github-corner:hover .octo-arm{animation:a .56s ease-in-out}.github-corner .octo-arm{animation:none}@keyframes a{0%,to{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}</style><a href="https://github.com/xhsioi/xhsioi.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50"><svg viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a></nav></header><div class="bg-cover pd-header post-cover" style="background-image:url(/medias/featureimages/5.jpg)"><div class="container"><div class="row"><div class="col s12 m12 l12"><div class="brand"><div class="description center-align post-title">每日一题整理——2023.10</div></div></div></div></div></div><main class="post-container content"><link rel="stylesheet" href="/libs/tocbot/tocbot.css"><style>#articleContent h1::before,#articleContent h2::before,#articleContent h3::before,#articleContent h4::before,#articleContent h5::before,#articleContent h6::before{display:block;content:" ";height:100px;margin-top:-100px;visibility:hidden}#articleContent :focus{outline:0}.toc-fixed{position:fixed;top:64px}.toc-widget{padding-left:20px}.toc-widget .toc-title{margin:35px 0 15px 0;padding-left:17px;font-size:1.5rem;font-weight:700;line-height:1.5rem}.toc-widget ol{padding:0;list-style:none}#toc-content ol{padding-left:10px}#toc-content ol li{padding-left:10px}#toc-content .toc-link:hover{color:#42b983;font-weight:700;text-decoration:underline}#toc-content .toc-link::before{background-color:transparent;max-height:25px}#toc-content .is-active-link{color:#42b983}#toc-content .is-active-link::before{background-color:#42b983}#floating-toc-btn{position:fixed;right:20px;bottom:76px;padding-top:15px;margin-bottom:0;z-index:998}#floating-toc-btn .btn-floating{width:48px;height:48px}#floating-toc-btn .btn-floating i{line-height:48px;font-size:1.4rem}</style><div class="row"><div id="main-content" class="col s12 m12 l9"><div id="artDetail"><div class="card"><div class="card-content article-info"><div class="row tag-cate"><div class="col s7"><div class="article-tag"><a href="/tags/c/" target="_blank"><span class="chip bg-color">c++</span> </a><a href="/tags/%E7%AE%97%E6%B3%95/" target="_blank"><span class="chip bg-color">算法</span></a></div></div><div class="col s5 right-align"><div class="post-cate"><i class="fa fa-bookmark fa-fw icon-category"></i> <a href="/categories/leetcode/" class="post-category" target="_blank">leetcode</a></div></div></div><div class="post-info"><div class="post-date info-break-policy"><i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp; 2023-11-01</div><div class="post-author info-break-policy"><i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp; xhsioi</div><div class="info-break-policy"><i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp; 2.8k</div><div class="info-break-policy"><i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp; 13 分</div><div id="busuanzi_container_page_pv" class="info-break-policy"><i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp; <span id="busuanzi_value_page_pv"></span></div></div></div><hr class="clearfix"><div class="card-content article-card-content"><div id="articleContent"><h1 id="每日一题整理——2023-10"><a href="#每日一题整理——2023-10" class="headerlink" title="每日一题整理——2023.10"></a>每日一题整理——2023.10</h1><p>10.12</p><h3 id="Find-in-Mountain-Array"><a href="#Find-in-Mountain-Array" class="headerlink" title="Find in Mountain Array"></a><strong><a target="_blank" rel="noopener" href="https://leetcode.com/problems/find-in-mountain-array/">Find in Mountain Array</a></strong></h3><p>给出一个山数组，找出给定元素的最小序号，需要注意的是山数组的形式为get()形式，且使用的次数不能超过100次。</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311010947587.png"></p><p>我的思路：看了一下数据范围，10^4，只能二分做，这里先找到最大元素，然后两边分别二分，一共用了三个二分，需要注意边界。</p><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">/**
+ * // This is the MountainArray's API interface.
+ * // You should not implement it, or speculate about its implementation
+ * class MountainArray {
+ *   public:
+ *     int get(int index);
+ *     int length();
+ * };
+ */
+
+class Solution {
+public:
+    int findInMountainArray(int target, MountainArray &amp;mountainArr) {
+        int start = 0;
+        int n = mountainArr.length();
+        int end = n-1;
+        int mid;
+        while(start &lt; end){
+            mid = start + (end - start)/2;
+            if(mountainArr.get(mid) &gt; mountainArr.get(mid+1)){
+                end = mid;
+            }
+            else if(mountainArr.get(mid) &lt; mountainArr.get(mid+1)){
+                start = mid+1;
+            }
+        } 
+        int start1 = mid;
+        int end1 = n-1;
+        end = start;
+        start = 0;
+        while(start &lt;= end){
+            mid = start + (end-start)/2;
+            if(mountainArr.get(mid) == target){
+                return mid;
+            }
+            else if(mountainArr.get(mid) &gt; target){
+                end = mid-1;
+            }
+            else{
+                start = mid+1;
+            }
+        }
+        while(start1 &lt;= end1){
+            mid = start1 + (end1 - start1)/2;
+            if(mountainArr.get(mid) == target){
+                return mid;
+            }
+            else if(mountainArr.get(mid) &lt; target){
+                end1 = mid-1;
+            }
+            else{
+                start1 = mid+1; 
+            }
+        }
+        return -1;
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>10.13</p><h3 id="避免洪水泛滥"><a href="#避免洪水泛滥" class="headerlink" title="避免洪水泛滥"></a><strong><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/avoid-flood-in-the-city/">避免洪水泛滥</a></strong></h3><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311010947588.png"></p><p>数据范围：</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311010947589.png"></p><p>我的思路：</p><p>大致的思路就是贪心+二分，遍历时记录所有可抽水的日期索引，每次出现洪水时找最近的晴天抽水（二分），最后得到结果。</p><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">class Solution {
+public:
+    vector&lt;int&gt; avoidFlood(vector&lt;int&gt;&amp; rains) {
+        vector&lt;int&gt; ans(rains.size() , 1);
+        set&lt;int&gt; st;
+        unordered_map&lt;int , int&gt; mp;
+        for(int i = 0 ; i &lt; rains.size() ; ++i){
+            if(rains[i] == 0){
+                st.insert(i);
+            }
+            else{
+                ans[i] = -1;
+                if(mp.count(rains[i])){
+                    auto it = st.lower_bound(mp[rains[i]]);
+                    if(it == st.end()){
+                        return {};
+                    }
+                    ans[*it] = rains[i];
+                    st.erase(it);
+                }
+                mp[rains[i]] = i;
+            }
+        }
+        return ans;
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>10.14</p><h3 id="Painting-the-Walls"><a href="#Painting-the-Walls" class="headerlink" title="Painting the Walls"></a><strong><a target="_blank" rel="noopener" href="https://leetcode.com/problems/painting-the-walls/">Painting the Walls</a></strong></h3><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311010947590.png"></p><p>数据范围：</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311010947591.png"></p><p>我的思路：</p><p>整体数据范围较小，可以考虑用深度优先搜索的方法进行计算。</p><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">class Solution {
+public:
+    int memo(vector&lt;int&gt;&amp; cost , vector&lt;int&gt; &amp;time , int index , int walls , vector&lt;vector&lt;int&gt;&gt; &amp;dp){
+        if(walls &lt;= 0){
+            return 0;
+        }
+        if(index &lt; 0){
+            return 1e9;
+        }
+        if(dp[index][walls] != -1){
+            return dp[index][walls];
+        }
+        int notTake = 0 + memo(cost , time , index-1 , walls , dp);
+        int take = cost[index] + memo(cost , time , index-1 , walls-time[index]-1 , dp);
+        return dp[index][walls] = min(notTake , take);
+    }
+    int paintWalls(vector&lt;int&gt;&amp; cost, vector&lt;int&gt;&amp; time) {
+        int n = cost.size();
+        vector&lt;vector&lt;int&gt;&gt; dp(n+1 , vector&lt;int&gt;(n+1 , -1));
+        return memo(cost , time , n-1 , n , dp);
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>10.16</p><h3 id="只出现一次的数字-III"><a href="#只出现一次的数字-III" class="headerlink" title="只出现一次的数字 III"></a><strong><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/single-number-iii/">只出现一次的数字 III</a></strong></h3><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311010947592.png"></p><p>数据范围：</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311010947593.png" alt="Untitled"></p><p>我的思路：</p><p>这里使用位运算会方便一些，首先根据异或操作的性质，对所有元素进行异或操作之后会得到最终的a^b的值，根据这个值我们通过相反数按位与操作获得最后一位1</p><p>的位置信息，代表a和b在这一位上产生了异或，然后将整体数据分成两个大类，即：</p><ul><li>在该位置上均为1；</li><li>在该位置上均为0；</li></ul><p>因此再次进行遍历，将不同类别分别进行异或，得到最终的答案，代码如下：</p><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">class Solution {
+public:
+    vector&lt;int&gt; singleNumber(vector&lt;int&gt;&amp; nums) {
+        int sum = 0;
+        for(int num : nums){
+            sum ^= num;
+        }
+        int tmp = (sum == INT_MIN ? sum : (sum &amp; (-sum)));
+        int a = 0 , b = 0;
+        for(int num : nums){
+            if(num&amp;tmp){
+                a ^= num;
+            }
+            else{
+                b ^= num;
+            }
+        }
+        return {a , b};
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>10.17</p><h3 id="Validate-Binary-Tree-Nodes"><a href="#Validate-Binary-Tree-Nodes" class="headerlink" title="Validate Binary Tree Nodes"></a><strong><a target="_blank" rel="noopener" href="https://leetcode.com/problems/validate-binary-tree-nodes/">Validate Binary Tree Nodes</a></strong></h3><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311010947595.png"></p><p>数据范围：</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311010947596.png"></p><p>我的思路：</p><p>先找到根节点，找到之后bfs搜索判断是否所有点处于同一个分支上，且是否有环。</p><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">class Solution {
+public:
+    bool validateBinaryTreeNodes(int n, vector&lt;int&gt;&amp; leftChild, vector&lt;int&gt;&amp; rightChild) {
+        vector&lt;int&gt; flag(n);
+        fill(flag.begin() , flag.end() , false);
+        //先找根节点
+        for(int i = 0 ; i &lt; n ; ++i){
+            if(leftChild[i] != -1){
+                flag[leftChild[i]] = true;
+            }
+            if(rightChild[i] != -1){
+                flag[rightChild[i]] = true;
+            }
+        }
+        int root = -1;
+        for(int i = 0 ; i &lt; n ; ++i){
+            if(!flag[i]){
+                root = i;
+                break;
+            }
+        }
+        if(root == -1){
+            return false;
+        }
+        //cout&lt;&lt;root&lt;&lt;endl;
+        fill(flag.begin() , flag.end() , false);
+        queue&lt;int&gt; q;
+        q.push(root);
+        flag[root] = true;
+        while(!q.empty()){
+            int nn = q.size();
+            while(nn--){
+                root = q.front();
+                q.pop();
+                int left = leftChild[root];
+                int right = rightChild[root];
+                if((left != -1 &amp;&amp; flag[left]) || (right != -1 &amp;&amp; flag[right])){
+                    return false;
+                }
+                if(left != -1 &amp;&amp; !flag[left]){
+                    q.push(left);
+                    flag[left] = true;
+                }
+                if(right != -1 &amp;&amp; !flag[right]){
+                    q.push(right);
+                    flag[right] = true;
+                }
+            }
+        }
+        for(int i = 0 ; i &lt; n ; ++i){
+            if(!flag[i]){
+                cout&lt;&lt;i&lt;&lt;endl;
+                return false;
+            }
+        }
+        return true;
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>最后发现可以用并查集做，只是需要构建一个状态数组保存之前访问过的点，代码如下：</p><pre class="line-numbers language-java" data-language="java"><code class="language-java">class Solution {
+    public boolean validateBinaryTreeNodes(int n, int[] leftChild, int[] rightChild) {
+        UnionFind uf = new UnionFind(n);
+        for(int i = 0 ; i &lt; n ; ++i){
+            if(leftChild[i] &gt;= 0 &amp;&amp; !uf.union(i,leftChild[i])){
+                return false;
+            }
+            if(rightChild[i] &gt;= 0 &amp;&amp; !uf.union(i , rightChild[i])){
+                return false;
+            }
+        }
+        return uf.components() == 1;
+    }
+}
+class UnionFind{
+    private final int n;
+    private final int[] roots;
+    private int components;
+
+    UnionFind(int n){
+        this.n = n;
+        roots = new int[n];
+        for(int i = 0 ; i &lt; n ; ++i){
+            roots[i] = i;
+        }
+        components = n;
+    }
+
+    public boolean union(int parent , int child){
+        int rootParent = findRoot(parent);
+        int rootChild = findRoot(child);
+
+        if(rootParent == rootChild || rootChild != child){
+            return false;
+        }
+
+        roots[rootChild] = rootParent;
+        components--;
+        return true;
+    }
+
+    private int findRoot(int v){
+        while(v != roots[v]){
+            roots[v] = roots[roots[v]];
+            v = roots[v];
+        }
+        return v;
+    }
+
+    public int components(){
+        return components;
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>10.21</p><h3 id="Constrained-Subsequence-Sum"><a href="#Constrained-Subsequence-Sum" class="headerlink" title="Constrained Subsequence Sum"></a><strong><a target="_blank" rel="noopener" href="https://leetcode.com/problems/constrained-subsequence-sum/">Constrained Subsequence Sum</a></strong></h3><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311010947597.png"></p><p>数据范围：</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311010947598.png"></p><p>我的思路：</p><p>这道题的基本思路还是动态规划，但是问题是如何控制在限定的步长中进行元素的删减。这里给出了基本的代码：</p><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">class Solution {
+public:
+    int constrainedSubsetSum(vector&lt;int&gt;&amp; nums, int k) {
+        int n = nums.size();
+        deque&lt;int&gt; q;//队尾保存当前的最大值
+        int res = nums[0];
+        for(int i = 0 ; i &lt; n ; ++i){
+            nums[i] += q.size() ? q.front() : 0;
+            res = max(res , nums[i]);
+            while(q.size() &amp;&amp; nums[i] &gt; q.back()){
+                q.pop_back();
+            }
+            if(nums[i] &gt; 0){
+                q.push_back(nums[i]);
+            }
+            if(i &gt;= k &amp;&amp; q.size() &amp;&amp; q.front() == nums[i-k]){
+                q.pop_front();
+            }
+        }
+        return res;
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>将当前元素 <strong><code>nums[i]</code></strong> 与队列 <strong><code>q</code></strong> 的前端元素相加，这是因为在计算子集和时，可以选择加入队列中的元素以增加子集的和。</li><li>更新 **<code>res</code>**，以确保它存储当前的最大和。</li><li>检查队列 **<code>q</code>**，如果当前元素 **<code>nums[i]</code>**大于队列中的尾部元素，就一直从队尾弹出元素，直到队列为空或者直到当前元素小于队尾元素。这是因为队列 <strong><code>q</code></strong> 保存了当前窗口范围内的最大值。</li><li>如果当前元素 <strong><code>nums[i]</code></strong> 大于0，将其添加到队列 **<code>q</code>**，因为它有可能对后续子集的和有正面影响。</li><li>检查是否已经达到约束大小 **<code>k</code>**，如果是，则检查队列 <strong><code>q</code></strong> 的前端元素是否与在窗口范围内的最早元素 <strong><code>nums[i-k]</code></strong> 相等，如果相等，说明该元素已经不在窗口范围内了，因此从队列的前端弹出。</li></ul><p>10.22</p><h3 id="Maximum-Score-of-a-Good-Subarray"><a href="#Maximum-Score-of-a-Good-Subarray" class="headerlink" title="Maximum Score of a Good Subarray"></a><strong><a target="_blank" rel="noopener" href="https://leetcode.com/problems/maximum-score-of-a-good-subarray/">Maximum Score of a Good Subarray</a></strong></h3><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311010947599.png"></p><p>数据范围：</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311010947600.png" alt="Untitled"></p><p>我的思路：</p><p>首先这里给出了中心点，即最后的答案都是围绕k点进行计算的，因此可以使用双指针对两侧进行遍历，得到最大值。</p><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">class Solution {
+public:
+    int maximumScore(vector&lt;int&gt;&amp; nums, int k) {
+        int res = nums[k];
+        int mini = nums[k];
+        int i=k,j=k,n=nums.size();
+        while(i &gt; 0 || j &lt; n-1){
+            if(i == 0){
+                ++j;
+            }
+            else if(j == n-1){
+                --i;
+            }
+            else if(nums[i-1] &lt; nums[j+1]){
+                ++j;
+            }
+            else{
+                --i;
+            }
+            mini = min(mini , min(nums[i] , nums[j]));
+            res = max(res , mini * (j-i+1));
+        }
+        return res;
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>10.23</p><h3 id="Power-of-Four"><a href="#Power-of-Four" class="headerlink" title="Power of Four"></a><strong><a target="_blank" rel="noopener" href="https://leetcode.com/problems/power-of-four/">Power of Four</a></strong></h3><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311010947601.png"></p><p>数据范围：</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311010947602.png"></p><p>我的思路：</p><p>这里给出了位运算的做法，首先分析是否整数，然后是以下两条定理的应用：</p><ul><li>对于正整数n，和n-1的与运算结果为0，证明n为偶数；</li><li>对于正整数n，和0x55555555进行与运算如果结果为本身，则证明n的因子只有4、它本身和1。</li></ul><p>代码如下：</p><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">class Solution {
+public:
+    bool isPowerOfFour(int n) {
+        int mask = 0x55555555;
+        return n &gt; 0 &amp;&amp; (n&amp;(n-1))==0 &amp;&amp; (n&amp;mask)==n;
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>10.25</p><h3 id="K-th-Symbol-in-Grammar"><a href="#K-th-Symbol-in-Grammar" class="headerlink" title="K-th Symbol in Grammar"></a><strong><a target="_blank" rel="noopener" href="https://leetcode.com/problems/k-th-symbol-in-grammar/">K-th Symbol in Grammar</a></strong></h3><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311010947603.png"></p><p>数据范围：</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311010947604.png"></p><p>我的思路：</p><p>数据范围不算很大，这里直接构建一个栈来保存所求k节点上一轮的生成节点，因为每一组字符串的起点都是01开始，因此只要确认最开始是从0还是1开始的，就可以根据所在词组的奇偶位置来判断0还是1.具体的代码如下所示：</p><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">class Solution {
+public:
+    int kthGrammar(int n, int k) {
+        stack&lt;int&gt; s;
+        --k;
+        s.push(k);
+        while(k&gt;1){
+            k /= 2;
+            s.push(k);
+        }
+        int start = s.top() == 0 ? 0 : 1;
+        s.pop();
+        int check[2][2] = {{1,0},{0,1}};
+        int index;
+        while(!s.empty()){
+            int tmp = s.top();
+            s.pop();
+            if(start){
+                index = 0;
+            }
+            else{
+                index = 1;
+            }
+            start = tmp%2 ? check[index][1] : check[index][0];
+        }
+        return start;
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>10.29</p><h3 id="Poor-Pigs"><a href="#Poor-Pigs" class="headerlink" title="Poor Pigs"></a><strong><a target="_blank" rel="noopener" href="https://leetcode.com/problems/poor-pigs/">Poor Pigs</a></strong></h3><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311010947605.png"></p><p>数据范围：</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311010947606.png"></p><p>我的思路：</p><p>这道题很有意思，之前以为是二分，结果发现公式构造不出来，如果简单地将猪的数量进行左右收敛其实很难得到结果，对于不同的例子可能会得到相反的答案。看了答案之后才明白，<strong>这里对猪进行T轮测试，实际上会得到T+1轮结果。在每次进行均分样本测试时，我们可以单独抽出一组不做投喂，如果没有猪病死，证明问题出现在未实验的群组里。</strong></p><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">class Solution {
+public:
+    int poorPigs(int buckets, int timeDetect, int timeTest) {
+        return ceil(log2(buckets)/log2(int(timeTest/timeDetect)+1));
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>10.30</p><h3 id="Sort-Integers-by-The-Number-of-1-Bits"><a href="#Sort-Integers-by-The-Number-of-1-Bits" class="headerlink" title="Sort Integers by The Number of 1 Bits"></a><strong><a target="_blank" rel="noopener" href="https://leetcode.com/problems/sort-integers-by-the-number-of-1-bits/">Sort Integers by The Number of 1 Bits</a></strong></h3><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311010947607.png"></p><p>数据范围：</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311010947608.png"></p><p>我的思路：</p><p>感觉做法有些麻烦，就是构造字节数量数组进行排序。</p><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">class Solution {
+public:
+    int mp[10001];
+    bool compare(int a , int b){
+        if(mp[a] != mp[b]){
+            return mp[a] &gt; mp[b];
+        }
+        return a &gt;= b;
+    }
+    vector&lt;int&gt; sortByBits(vector&lt;int&gt;&amp; arr) {
+        int n = arr.size();
+        fill(mp,mp+10001,0);
+        for(int nums : arr){
+            if(mp[nums]!=0){
+                continue;
+            }
+            int num = nums;
+            while(num){
+                if(num&amp;1){
+                    ++mp[nums];
+                }
+                num = num &gt;&gt; 1;
+            }
+        }
+        for(int i = 0 ; i &lt; n ; ++i){
+            for(int j = i+1 ; j &lt; n ; ++j){
+                if(compare(arr[i],arr[j])){
+                    int tmp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = tmp;
+                }
+            }
+        }
+        return arr;
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>结果打开题解一看，发现stl里面有固定函数，直接套了一下。</p><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">class Solution {
+public:
+    vector&lt;int&gt; sortByBits(vector&lt;int&gt;&amp; arr) {
+        sort(arr.begin(), arr.end(), [](int a, int b) {
+            int countA = __builtin_popcount(a);
+            int countB = __builtin_popcount(b);
+            return (countA == countB) ? a &lt; b : countA &lt; countB;
+        });
+        return arr;
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/github_38148039/article/details/109598368">https://blog.csdn.net/github_38148039/article/details/109598368</a></p><p>函数功能就是返回输入数据中的二进制1的个数，说实话这个实现看起来比较规范，但是没看懂是咋实现的。</p><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">unsigned popcount (unsigned u)
+{
+    u = (u &amp; 0x55555555) + ((u &gt;&gt; 1) &amp; 0x55555555);
+    u = (u &amp; 0x33333333) + ((u &gt;&gt; 2) &amp; 0x33333333);
+    u = (u &amp; 0x0F0F0F0F) + ((u &gt;&gt; 4) &amp; 0x0F0F0F0F);
+    u = (u &amp; 0x00FF00FF) + ((u &gt;&gt; 8) &amp; 0x00FF00FF);
+    u = (u &amp; 0x0000FFFF) + ((u &gt;&gt; 16) &amp; 0x0000FFFF);
+    return u;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>10.31</p><h3 id="每棵子树内缺失的最小基因值"><a href="#每棵子树内缺失的最小基因值" class="headerlink" title="每棵子树内缺失的最小基因值"></a><strong><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/smallest-missing-genetic-value-in-each-subtree/">每棵子树内缺失的最小基因值</a></strong></h3><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311010947609.png"></p><p>数据范围：</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311010947610.png"></p><p>我的思路：</p><p>数据范围不是很大，感觉正常思路深度搜索就能处理，整体上应该是自底向上的递归过程，对于每个节点构成的子树，基因集合构造完成后找寻缺失值即可。</p><p><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align:-.452ex" xmlns="http://www.w3.org/2000/svg" width="196.833ex" height="2.149ex" role="img" focusable="false" viewBox="0 -750 87000 950"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="merror" data-mjx-error="Missing or unrecognized delimiter for \left" title="Missing or unrecognized delimiter for \left"><rect data-background="true" width="87000" height="950" y="-200"></rect><title>Missing or unrecognized delimiter for \left</title><g data-mml-node="mtext" style="font-family:serif"><text data-variant="-explicitFont" transform="scale(1,-1)" font-size="884px">\left.geneSet_{node}=\left{\begin{matrix}nums[node]\end{matrix}\right.\right}\bigcup\left(\sum_{chuld\in children_{node}}geneSet_{child}\right)</text></g></g></g></g></svg></mjx-container></p><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">class Solution {
+public:
+    vector&lt;int&gt; smallestMissingValueSubtree(vector&lt;int&gt;&amp; parents, vector&lt;int&gt;&amp; nums) {
+        int n = parents.size();
+        vector&lt;vector&lt;int&gt;&gt; grid(n);
+        for(int i = 1 ; i &lt; n ; ++i){
+            grid[parents[i]].push_back(i);
+        }        
+        vector&lt;int&gt; res(n,1);
+        vector&lt;unordered_set&lt;int&gt;&gt; geneSet(n);
+        function&lt;int(int)&gt; dfs = [&amp;](int node) -&gt; int {
+            geneSet[node].insert(nums[node]);
+            for(auto child : grid[node]){
+                res[node] = max(res[node] , dfs(child));
+                if(geneSet[node].size() &lt; geneSet[child].size()){
+                    geneSet[node].swap(geneSet[child]);
+                }
+                geneSet[node].merge(geneSet[child]);
+            }
+            while(geneSet[node].count(res[node]) &gt; 0){
+                res[node]++;
+            }
+            return res[node];
+        };
+        dfs(0);
+        return res;
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div><hr><style>#reward{margin:40px 0;text-align:center}#reward .reward-link{font-size:1.88rem}#reward .btn-floating:hover{box-shadow:0 6px 12px rgba(0,0,0,.2),0 5px 15px rgba(0,0,0,.2)}#rewardModal{width:320px;height:350px}#rewardModal .reward-title{margin:15px auto;padding-bottom:5px}#rewardModal .modal-content{padding:10px}#rewardModal .close{position:absolute;right:15px;top:15px;color:rgba(0,0,0,.5);font-size:1.3rem;line-height:20px;cursor:pointer}#rewardModal .close:hover{color:#ef5350;transform:scale(1.3);-moz-transform:scale(1.3);-webkit-transform:scale(1.3);-o-transform:scale(1.3)}#rewardModal .reward-tabs{margin:0 auto;width:210px}.reward-tabs .tabs{height:38px;margin:10px auto;padding-left:0}.reward-content ul{padding-left:0!important}.reward-tabs .tabs .tab{height:38px;line-height:38px}.reward-tabs .tab a{color:#fff;background-color:#ccc}.reward-tabs .tab a:hover{background-color:#ccc;color:#fff}.reward-tabs .wechat-tab .active{color:#fff!important;background-color:#22ab38!important}.reward-tabs .alipay-tab .active{color:#fff!important;background-color:#019fe8!important}.reward-tabs .reward-img{width:210px;height:210px}</style><div id="reward"><a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a><div id="rewardModal" class="modal"><div class="modal-content"><a class="close modal-close"><i class="fa fa-close"></i></a><h4 class="reward-title">欢迎投喂~</h4><div class="reward-content"><div class="reward-tabs"><ul class="tabs row"><li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li><li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li></ul><div id="alipay"><img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码"></div><div id="wechat"><img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码"></div></div></div></div></div></div><script>$(function(){$(".tabs").tabs()})</script><link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css"><div id="article-share"><div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div></div><script src="/libs/share/js/social-share.min.js"></script><div class="reprint" id="reprint-statement"><p class="reprint-tip"><i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp; <span>转载规则</span></p><div class="center-align"><a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by/4.0/deed.zh"><img alt="" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a></div><br><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">《每日一题整理——2023.10》 </span>由 <a xmlns:cc="http://creativecommons.org/ns#" href="/2023/11/01/mei-ri-yi-ti-zheng-li-2023-10/" property="cc:attributionName" rel="cc:attributionURL">xhsioi </a>采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by/4.0/deed.zh">知识共享署名 4.0 国际许可协议 </a>进行许可。</div><script async defer>document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }</script></div></div><article id="prenext-posts" class="prev-next articles"><div class="row article-row"><div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up"><div class="article-badge left-badge text-color"><i class="fa fa-dot-circle-o"></i>&nbsp;本篇</div><div class="card"><a href="/2023/11/01/mei-ri-yi-ti-zheng-li-2023-10/"><div class="card-image"><img src="/medias/featureimages/5.jpg" class="responsive-img" alt="每日一题整理——2023.10"> <span class="card-title">每日一题整理——2023.10</span></div></a><div class="card-content article-content"><div class="summary block-with-text">每日一题整理——2023.1010.12 Find in Mountain Array给出一个山数组，找出给定元素的最小序号，需要注意的是山数组的形式为get()形式，且使用的次数不能超过100次。 我的思路：看了一下数据范围，10^4，</div><div class="publish-info"><span class="publish-date"><i class="fa fa-clock-o fa-fw icon-date"></i>2023-11-01 </span><span class="publish-author"><i class="fa fa-bookmark fa-fw icon-category"></i> <a href="/categories/leetcode/" class="post-category" target="_blank">leetcode</a></span></div></div><div class="card-action article-tags"><a href="/tags/c/" target="_blank"><span class="chip bg-color">c++</span> </a><a href="/tags/%E7%AE%97%E6%B3%95/" target="_blank"><span class="chip bg-color">算法</span></a></div></div></div><div class="article col s12 m6" data-aos="fade-up"><div class="article-badge right-badge text-color">下一篇&nbsp;<i class="fa fa-chevron-right"></i></div><div class="card"><a href="/2023/10/29/ji-qi-fan-yi-ji-chu-yu-mo-xing-xue-xi-bi-ji-ji-qi-fan-yi-qian-yan/"><div class="card-image"><img src="/medias/featureimages/26.jpg" class="responsive-img" alt="机器翻译：基础与模型学习笔记——机器翻译前沿"> <span class="card-title">机器翻译：基础与模型学习笔记——机器翻译前沿</span></div></a><div class="card-content article-content"><div class="summary block-with-text">机器翻译：基础与模型学习笔记——机器翻译前沿神经机器翻译模型训练神经机器翻译在当代遇到问题常有以下三部分： 对大容量模型的有效训练，也就是数据集的构建和过拟合之间的矛盾； 如何更好地训练模型，也就是特征选择和评价指标的判断标准；trans</div><div class="publish-info"><span class="publish-date"><i class="fa fa-clock-o fa-fw icon-date"></i>2023-10-29 </span><span class="publish-author"><i class="fa fa-bookmark fa-fw icon-category"></i> <a href="/categories/%E6%9C%BA%E5%99%A8%E7%BF%BB%E8%AF%91/" class="post-category" target="_blank">机器翻译</a></span></div></div><div class="card-action article-tags"><a href="/tags/%E8%87%AA%E6%88%91%E6%8F%90%E5%8D%87/" target="_blank"><span class="chip bg-color">自我提升</span></a></div></div></div></div></article></div><script>$("#articleContent").on("copy",function(e){var n,t,o,i;void 0!==window.getSelection&&((""+(n=window.getSelection())).length<Number.parseInt("120")||(t=document.getElementsByTagName("body")[0],(o=document.createElement("div")).style.position="absolute",o.style.left="-99999px",t.appendChild(o),o.appendChild(n.getRangeAt(0).cloneContents()),"PRE"===n.getRangeAt(0).commonAncestorContainer.nodeName&&(o.innerHTML="<pre>"+o.innerHTML+"</pre>"),i=document.location.href,o.innerHTML+='<br />来源: cout>>.<<cin<br />作者: xhsioi<br />链接: <a href="'+i+'">'+i+"</a><br />本文章著作权归作者所有，任何形式的转载都请注明出处。",n.selectAllChildren(o),window.setTimeout(function(){t.removeChild(o)},200)))})</script></div><div id="toc-aside" class="expanded col l3 hide-on-med-and-down"><div class="toc-widget"><div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div><div id="toc-content"></div></div></div></div><div id="floating-toc-btn" class="hide-on-med-and-down"><a class="btn-floating btn-large bg-color"><i class="fa fa-list"></i></a></div><script src="/libs/tocbot/tocbot.min.js"></script><script>$(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });</script></main><footer class="page-footer bg-color"><div class="container row center-align"><div class="col s12 m8 l8 copy-right">&nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp; <span class="white-color">92.2k</span><br><span id="sitetime"></span><br><span id="busuanzi_container_site_pv" style="display:none"><i class="fa fa-heart-o"></i> 本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span> </span><span id="busuanzi_container_site_uv" style="display:none">人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.</span></div><div class="col s12 m4 l4 social-link social-statis"><a href="https://github.com/xhsioi" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50"><i class="fa fa-github"></i> </a><a href="mailto:m18846242315@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50"><i class="fa fa-envelope-open"></i> </a><a href="https://zhihu.com/people/xhsioi" class="tooltipped" target="_blank" data-tooltip="访问我的知乎" data-position="top" data-delay="50"><i class="fa fa-inverse">知</i> </a><a href="http://wpa.qq.com/msgrd?v=3&uin=2848220300&site=qq&menu=yes" class="tooltipped" target="_blank" data-tooltip="访问我的知乎" data-position="top" data-delay="50"><i class="fa fa-qq"></i></a></div></div></footer><div class="progress-bar"></div><script>$(document).ready(function(){var e=setInterval(function(){"none"!=document.getElementById("busuanzi_container_site_pv").style.display&&($("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html())+n),clearInterval(e));"none"!=$("#busuanzi_container_site_pv").css("display")&&($("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html())+t),clearInterval(e))},50),n=8e4,t=2e4})</script><script language="javascript">function siteTime(){window.setTimeout("siteTime()",1e3);var e=36e5,t=24*e,o=new Date,i=o.getFullYear(),a=o.getMonth()+1,n=o.getDate(),r=o.getHours(),l=o.getMinutes(),s=o.getSeconds(),M=Date.UTC(2021,10,5,12,0,0),g=Date.UTC(i,a,n,r,l,s)-M,m=Math.floor(g/31536e6),T=Math.floor(g/t-365*m),f=Math.floor((g-(365*m+T)*t)/e),h=Math.floor((g-(365*m+T)*t-f*e)/6e4),u=Math.floor((g-(365*m+T)*t-f*e-6e4*h)/1e3);document.getElementById("sitetime").innerHTML="本站已运行 "+m+" 年 "+T+" 天 "+f+" 小时 "+h+" 分钟 "+u+" 秒"}siteTime()</script><link rel="stylesheet" href="/css/prism.css"><script src="/js/prism.js" async></script><div id="searchModal" class="modal"><div class="modal-content"><div class="search-header"><span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span> <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input"></div><div id="searchResult"></div></div></div><script src="/js/search.js"></script><script type="text/javascript">$(function(){searchFunc("/search.xml","searchInput","searchResult")})</script><div id="backTop" class="top-scroll"><a class="btn-floating btn-large waves-effect waves-light" href="#!"><i class="fa fa-angle-up"></i></a></div><script src="/libs/materialize/materialize.min.js"></script><script src="/libs/masonry/masonry.pkgd.min.js"></script><script src="/libs/aos/aos.js"></script><script src="/libs/scrollprogress/scrollProgress.min.js"></script><script src="/libs/lightGallery/js/lightgallery-all.min.js"></script><script src="/js/matery.js"></script><script type="text/javascript">var st,OriginTitile=document.title;document.addEventListener("visibilitychange",function(){document.hidden?(document.title="Σ(っ °Д °;)っ你给我回来李和鑫！",clearTimeout(st)):(document.title="φ(゜▽゜*)♪你回来辣！",st=setTimeout(function(){document.title=OriginTitile},3e3))})</script><script async src="/libs/others/busuanzi.pure.mini.js"></script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,log:!1,model:{jsonPath:"/live2dw/assets/miku.model.json"},display:{superSample:2,position:"left",width:150,height:300,hOffset:30,vOffset:-30},mobile:{show:!0,scale:.6},react:{opacity:.7},name:{canvas:"live2dcanvas",div:"live2d-widget"},dev:{border:!1},dialog:{enable:!0,hitokoto:!0}})</script></body></html>

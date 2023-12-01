@@ -4,6 +4,121 @@
   
     
     <entry>
+      <title>PBE论文阅读</title>
+      <link href="/2023/11/26/pbe-lun-wen-yue-du/"/>
+      <url>/2023/11/26/pbe-lun-wen-yue-du/</url>
+      
+        <content type="html"><![CDATA[<h1 id="progressive-backdoor-erasing-via-connecting-backdoor-and-adversarial-attacks"><a class="markdownIt-Anchor" href="#progressive-backdoor-erasing-via-connecting-backdoor-and-adversarial-attacks"></a> Progressive Backdoor Erasing via connecting Backdoor and Adversarial Attacks</h1><h2 id="相关知识"><a class="markdownIt-Anchor" href="#相关知识"></a> 相关知识</h2><h2 id="整体框架"><a class="markdownIt-Anchor" href="#整体框架"></a> 整体框架</h2><h3 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> Abstract</h3><p>背景：深度学习网络容易受到两种攻击：后门攻击和对抗性攻击。以往的研究将其作为独立的问题进行研究。</p><p>问题：对于植入后门的模型，对抗样本生成与它触发的图像具有相似的行为，说明<strong>一个模型中植入一个后门会显著影响模型的对抗样本生成</strong>。</p><p>方案：提出渐进式后门擦除算法（PBE，Progressive Backdoor Erasing），利用非目标的对抗性攻击来逐步净化受感染的模型，对干净的样本没有明显的性能下降。</p><h3 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h3><p>DNNs在许多领域得到了广泛应用（人脸识别、自动驾驶），因此其安全性显得尤为重要。DNNs在其推理和训练阶段都容易受到威胁。</p><ul><li>训练阶段：训练阶段将后门嵌入到模型中。当一个预先定义的trigger嵌入测试集图片时，受感染的模型就会将测试图像错误地分类。</li><li>推理阶段：数据集中加入对抗性样本，用小的对抗性扰动使模型进行错误的判断。</li></ul><p>特别的，我们观察到，对于一个植入了后门的模型，他的对抗样本生成和他触发的图像有相似的行为。对于正常的模型，其对抗性样本的预测类标签服从均匀分布；对于感染的模型，对抗性样本可能被预测为后门标签。<strong>（无论是怎样的target标签、后门攻击设置以及触发嵌入机制）</strong></p><p>发现：通过植入trigger对抗图像发生了显著的变化，两者都激活了相同的DNN神经元子集。</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311261402359.png" alt=""></p><p>近些年来后门攻击取得了巨大的进步，从可见的触发到隐形触发，从中毒标签到清洁标签攻击。（WaNet），相对的后门防御方法研究存在一定的滞后性，此外还需要一个干净的额外数据集来从受感染的模型中清除后门。</p><p>**本文提出了一种新的基于联系的防御方法：**在开始时，训练数据（包含中毒图像）被随机采样，以建立一个初始的额外数据集。接下来，我们使用它们，通过利用对抗性攻击技术来净化受感染的模型。然后，利用纯化的模型从训练数据中识别干净的图像，用于更新额外的数据集。通过交替程序，感染模型和额外的数据集逐步纯化。</p><p><strong>主要的贡献：</strong></p><p>我们观察到后门攻击和对抗性攻击之间的潜在联系，即，对于一个受感染的模型，它的对抗性例子与它所触发的样本有相似的行为。并通过理论分析来证明我们所观察到的结果。根据我们的观察，我们提出了一种渐进的后门防御方法，即使没有干净的额外数据集，也能达到最先进的防御性能。</p><p>为什么会产生这种现象？（即对感染的模型进行对抗性样本攻击会导致预测结果更好，达到净化模型的目的）</p><p>后门被植入一个模型时，一些DNN神经元会被触发器激活，这被称为“后门神经元”[5]。当对受感染的模型进行对抗性攻击时，这些“后门神经元”更有可能被选择/锁定和激活，以产生对抗性的例子。因此，生成的对抗性例子可以像触发的图像一样工作。</p><h3 id="conclusion"><a class="markdownIt-Anchor" href="#conclusion"></a> Conclusion</h3><p>对抗攻击和后门攻击之间的存在内部联系，这种联系可以被用来构造防御方法。</p><h2 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 自我提升 </tag>
+            
+            <tag> 论文研读 </tag>
+            
+            <tag> 后门攻击 </tag>
+            
+            <tag> 对抗样本生成 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Swin Transformer论文精读</title>
+      <link href="/2023/11/24/swin-transformer-lun-wen-jing-du/"/>
+      <url>/2023/11/24/swin-transformer-lun-wen-jing-du/</url>
+      
+        <content type="html"><![CDATA[<h1 id="swin-transformer"><a class="markdownIt-Anchor" href="#swin-transformer"></a> Swin Transformer</h1><p>论文：Swin Transformer: Hierarchical Vision Transformer using Shifted Windows</p><h2 id="相关知识"><a class="markdownIt-Anchor" href="#相关知识"></a> 相关知识</h2><h3 id="fpn特征金字塔"><a class="markdownIt-Anchor" href="#fpn特征金字塔"></a> FPN(特征金字塔)</h3><p>基本原理：生成不同尺寸的图片，每张图片生成不同的特征，分别进行预测，最后统计所有尺寸的预测结果。</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311300916291.png" alt=""></p><p>作用：把高层的特征传下来，同时保证底层特征也能被记录，最终提取多尺度的特征图。通过这种操作可以获得高分辨率、强语义的特征，有利于小目标的检测。</p><h2 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> Abstract</h2><p>相当于ViT的延伸，背景：</p><ul><li>视觉实体的尺度变换很大；</li><li>图像中像素的分辨率较高；</li></ul><p>实现方法：提出了一种分层变换器，移位窗口实现，移动的窗口保证了相邻的自注意力计算存在重叠部分，从而提高了效率。最终的模型在图像分类和密集预测任务中表现较好。</p><h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2><p>和ViT那篇差不多，讲了一下当前cv的两种方式，即传统的CNN和引入NLP的transformer。在本文中作者希望将ViT改进成适合所有图像任务的通用骨干网络。</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311300931717.png" alt=""></p><p>相较于之前的架构，构建分层特征图，并且具有与图像大小线性的计算复杂度。如图 1(a) 所示，Swin Transformer 通过从小尺寸补丁（灰色轮廓）开始并逐渐合并更深 Transformer 层中的相邻补丁来构建分层表示。借助这些分层特征图，Swin Transformer 模型可以方便地利用先进技术进行密集预测，例如特征金字塔网络 (FPN)或 U-Net。</p><p>滑动窗口的设计不仅能够使相邻patch之间的注意力计算成为可能，同时利用空间局限性提高了内存使用效率。</p><h2 id="method"><a class="markdownIt-Anchor" href="#method"></a> Method</h2><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311301026245.png" alt="整体架构，即层次transformer"></p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311301027948.png" alt="局部自注意力的滑动窗口实现"></p><p>在滑动窗口的实现过程中，需要注意非相邻的自注意力计算问题，这时候就需要对包含不同部分的位移后patch进行masked操作。</p><h2 id="conclusion"><a class="markdownIt-Anchor" href="#conclusion"></a> Conclusion</h2><p>该方法能获得更多层次的特征和更小的计算复杂度，取得了很好的成果。但是对于多模态领域而言，想要实现视觉和语言的统一，还需要探索Swin Transformer在NLP领域的可行性（即滑动窗口的方法）</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 自我提升 </tag>
+            
+            <tag> 论文研读 </tag>
+            
+            <tag> ViT </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>AlaphaFold2论文精读</title>
+      <link href="/2023/11/24/alaphafold2-lun-wen-jing-du/"/>
+      <url>/2023/11/24/alaphafold2-lun-wen-jing-du/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>对比学习简单涉猎</title>
+      <link href="/2023/11/24/dui-bi-xue-xi-jian-dan-she-xi/"/>
+      <url>/2023/11/24/dui-bi-xue-xi-jian-dan-she-xi/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MoCo论文精读</title>
+      <link href="/2023/11/24/moco-lun-wen-jing-du/"/>
+      <url>/2023/11/24/moco-lun-wen-jing-du/</url>
+      
+        <content type="html"><![CDATA[<h1 id="moco论文精读"><a class="markdownIt-Anchor" href="#moco论文精读"></a> MoCo论文精读</h1><p>前言：这一部分将通过MoCo这篇论文引入对比学习的研究讨论。</p><p><strong>论文标题：Momentum Contrast for Unsupervised Visual Representation Learning</strong></p><h2 id="相关知识"><a class="markdownIt-Anchor" href="#相关知识"></a> 相关知识</h2><h3 id="对比学习"><a class="markdownIt-Anchor" href="#对比学习"></a> 对比学习</h3><p>对比学习被当做自监督学习中的一个非常重要的部分；</p><p>**基本原理：**将一个样本的不同的、增强的新样本在embedding空间中尽可能地近，然后让不同样本之间尽可能远。</p><p>**注意：**这里的不同样本embedding之后的结果不是添加标签，只是比较空间中的距离确认相似程度。</p><p>**实现过程：**一种流行的方法就是设计各种pretext构建正负样本，让模型从伪标签中学习特征</p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202311241342863.png" style="zoom:80%;"><p>常见的pretext方法：</p><ul><li>颜色变换；</li><li>几何变换；</li><li>基于上下文的任务；</li><li>基于交叉模式的任务；</li></ul><h3 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> Abstract</h3><p>本文应用无监督视觉表征学习的动量对比，队列和移动平均encoder构建动态字典。得到的模型在ImageNet分类的common linear control以及下游任务中表现很好。</p><h3 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 自我提升 </tag>
+            
+            <tag> 论文研读 </tag>
+            
+            <tag> MoCo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>stable diffusion论文基础篇</title>
       <link href="/2023/11/16/stable-diffusion-lun-wen-ji-chu-pian/"/>
       <url>/2023/11/16/stable-diffusion-lun-wen-ji-chu-pian/</url>

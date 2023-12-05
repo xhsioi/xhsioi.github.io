@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>双流网络论文精读</title>
+      <link href="/2023/12/05/shuang-liu-wang-luo-lun-wen-jing-du/"/>
+      <url>/2023/12/05/shuang-liu-wang-luo-lun-wen-jing-du/</url>
+      
+        <content type="html"><![CDATA[<h1 id="双流网络论文精读"><a class="markdownIt-Anchor" href="#双流网络论文精读"></a> 双流网络论文精读</h1><h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2><p>这几天在看毕设相关的文献，突然发现对视频embedding的方法不是很熟悉，因此看了一下双流和I3D的相关工作。</p><h2 id="two-stream-convolutional-networks-for-action-recognition-in-video"><a class="markdownIt-Anchor" href="#two-stream-convolutional-networks-for-action-recognition-in-video"></a> Two-Stream Convolutional Networks for Action Recognition in Video</h2><h3 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> Abstract</h3><p>双流网络分为两部分，即空间流卷积网络和光流神经网络，神经网络通过学习光流和动作之间的映射实现动作识别。光流指的视频中各个物体是如何进行移动的，运动越激烈的像素块颜色更加鲜艳，能够很好地描述物体的运动信息。静止的图像中获取表面信息，动态的移动信息是难点。</p><p>创新点：</p><ul><li>双流网络提出；</li><li>少量训练数据的双流模型也能表现较好；</li><li>在两个数据集上共同训练模型效果更好；</li></ul><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202312051505168.png" alt=""></p><h3 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h3><p>背景：视频作为数据集明显是一种更好地数据增强，只是使用单一的卷积网络得到的特征不如人工标注的特征；</p><p>创新点：参考光流特征；</p><p>过去的工作：在逐帧之间记录点的移动轨迹，演变成今天的双流网络；</p><h3 id="双流网络的结构"><a class="markdownIt-Anchor" href="#双流网络的结构"></a> 双流网络的结构</h3><p>空间流学习物体特征，时间流学习运动特征。</p><p>空间流只是进行图像分类的工作，这里的工作也很重要，因为物体和运动之间有很强的关联性，此外还可以用imagenet预训练的结果；</p><p>光流的图像如下所示。光流反应了图像变换的梯度，每个像素点都有光流值，最后得到的光流图是基于水平和垂直的双通道图像。</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202312051523050.png" alt=""></p><p>时间流网络的输入为叠加的光流图，有两种方法：比较有意思的是，左边的这种方法反而效果很好。叠加的顺序为先水平位移后竖直位移；</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202312051526998.png" alt=""></p><h3 id="实现细节"><a class="markdownIt-Anchor" href="#实现细节"></a> 实现细节</h3><p>测试部分：每个视频帧等分成25份，每一份中抽取一帧作为输入。也就是说，无论视频的长度如何，最终的抽取效果为25帧。此外，图像本身也进行数据增强操作，即将图像分割成五部分，分别对每一部分进行翻转操作。通过上述两种操作，最终得到250帧样本。</p><p>光流的存储：使用类似RGB的三通道，将光流图像存储成jpg；</p><h3 id="评价"><a class="markdownIt-Anchor" href="#评价"></a> 评价</h3><p>节选自<a href="https://www.bilibili.com/video/BV1mq4y1x7RU/">https://www.bilibili.com/video/BV1mq4y1x7RU/</a></p><p>贡献，不单单是使用了这么一个额外的时间流，它主要告诉了我们一个另外的道理，就是当你发现神经网络不能解决什么问题的时候，有可能仅仅靠魔改模型，或者仅仅改一下这个目标函数，是没办法很好的解决这个问题的。那我们不如给这个模型提供一些这种先验信息。他学不到，那我们就帮他学习。这样呢，往往能大幅度简化这个任务。</p><p>论文引用这么高，也不光是说他在视频分类里的应用。因其影响力横跨很多领域。当大家发现一个神经网络解决不了问题的时候，大家就会想到双流网络，然后去尝试使用别的数据，尝试使用别的模型，来做这种多流网络，解决问题呢，效果往往非常好。因为这些网络是可以互补的。而这也从侧面验证了数据的重要性。另外一个点就是可以将双流网络想像成是一个多模态学习的先例。rgb图像和光流图像其实就属于不同的模态。从多模态学习的角度来看，双流网络，或者说利用光流有可能在视频理解，或者表征学习方面再次发光发热。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 论文研读 </tag>
+            
+            <tag> 自我提升 </tag>
+            
+            <tag> 双流网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CLIP论文精读</title>
       <link href="/2023/12/01/clip-lun-wen-jing-du/"/>
       <url>/2023/12/01/clip-lun-wen-jing-du/</url>
@@ -33,9 +62,9 @@
       
         <tags>
             
-            <tag> 自我提升 </tag>
-            
             <tag> 论文研读 </tag>
+            
+            <tag> 自我提升 </tag>
             
             <tag> 后门攻击 </tag>
             
@@ -64,9 +93,9 @@
       
         <tags>
             
-            <tag> 自我提升 </tag>
-            
             <tag> 论文研读 </tag>
+            
+            <tag> 自我提升 </tag>
             
             <tag> ViT </tag>
             
@@ -119,9 +148,9 @@
       
         <tags>
             
-            <tag> 自我提升 </tag>
-            
             <tag> 论文研读 </tag>
+            
+            <tag> 自我提升 </tag>
             
             <tag> MoCo </tag>
             
@@ -148,9 +177,9 @@
       
         <tags>
             
-            <tag> 自我提升 </tag>
-            
             <tag> 论文研读 </tag>
+            
+            <tag> 自我提升 </tag>
             
             <tag> diffusion </tag>
             
@@ -177,9 +206,9 @@
       
         <tags>
             
-            <tag> 自我提升 </tag>
-            
             <tag> 论文研读 </tag>
+            
+            <tag> 自我提升 </tag>
             
             <tag> MAE </tag>
             
@@ -206,9 +235,9 @@
       
         <tags>
             
-            <tag> 自我提升 </tag>
-            
             <tag> 论文研读 </tag>
+            
+            <tag> 自我提升 </tag>
             
             <tag> diffusion </tag>
             
@@ -235,9 +264,9 @@
       
         <tags>
             
-            <tag> 自我提升 </tag>
-            
             <tag> 论文研读 </tag>
+            
+            <tag> 自我提升 </tag>
             
             <tag> 图神经网络 </tag>
             
@@ -264,9 +293,9 @@
       
         <tags>
             
-            <tag> 自我提升 </tag>
-            
             <tag> 论文研读 </tag>
+            
+            <tag> 自我提升 </tag>
             
             <tag> 综述 </tag>
             
@@ -295,9 +324,9 @@
       
         <tags>
             
-            <tag> 自我提升 </tag>
-            
             <tag> 论文研读 </tag>
+            
+            <tag> 自我提升 </tag>
             
             <tag> 综述 </tag>
             
@@ -428,13 +457,13 @@
       
         <tags>
             
-            <tag> 自我提升 </tag>
-            
             <tag> 论文研读 </tag>
             
             <tag> 机器翻译 </tag>
             
             <tag> 实体命名识别 </tag>
+            
+            <tag> 自我提升 </tag>
             
         </tags>
       
@@ -511,9 +540,9 @@
       
         <tags>
             
-            <tag> 语义分割 </tag>
-            
             <tag> 自我提升 </tag>
+            
+            <tag> 语义分割 </tag>
             
         </tags>
       
@@ -538,9 +567,9 @@
       
         <tags>
             
-            <tag> 自我提升 </tag>
-            
             <tag> 论文研读 </tag>
+            
+            <tag> 自我提升 </tag>
             
             <tag> 视觉问答 </tag>
             
@@ -746,9 +775,9 @@
       
         <tags>
             
-            <tag> 自我提升 </tag>
-            
             <tag> 论文研读 </tag>
+            
+            <tag> 自我提升 </tag>
             
             <tag> 综述 </tag>
             

@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>InstructBLIP论文阅读</title>
+      <link href="/2023/12/07/instructblip-lun-wen-yue-du/"/>
+      <url>/2023/12/07/instructblip-lun-wen-yue-du/</url>
+      
+        <content type="html"><![CDATA[<h1 id="instructblip"><a class="markdownIt-Anchor" href="#instructblip"></a> InstructBLIP</h1><p>代码地址：<a href="https://github.com/salesforce/LAVIS/tree/main/projects/instructblip">https://github.com/salesforce/LAVIS/tree/main/projects/instructblip</a></p><h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2><p>这里主要对其数据构建的方法进行深入的研究，同时对基座模型BLIP-2进行了解，最后对源码进行分析。</p><h2 id="相关知识"><a class="markdownIt-Anchor" href="#相关知识"></a> 相关知识</h2><h3 id="blip-2"><a class="markdownIt-Anchor" href="#blip-2"></a> BLIP-2</h3><p>BLIP（Bootstrapping Language-Image Pretraining）：引入了跨模态的编码器和解码器，实现了跨模态信息流动。</p><p><strong>MED架构</strong></p><p>编码器-解码器的多模态混合结构MED，进行多任务预学习和迁移学习，其中包括两个单模态编码器、一个以图像为基础的编码器和一个以图像为基础的解码器。</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202312071848718.png" alt=""></p><p>首先分别对image和text进行encode，经过自注意力、前向传播后计算ITC损失（图像-文本对比损失，对齐图像和文本的潜在特征空间）。之后就是对比学习的过程，将text和image同时编码后计算ITM（对图文匹配性进行二分类，也就是正负样本的训练，建模图文多模态信息的相关性）。最后解码，通过交叉熵进行优化，训练模型自回归生成目标（LM损失）。</p><p><strong>CapFilt</strong></p><p>数据集中的数据集存在噪音以及无匹配图片的问题，因此引入了cationer和Filter进行处理：</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202312071907262.png" alt=""></p><p>Filter和caption都是通过预训练模型得到的，过滤存在噪音的IT对，同时生成缺失的text。</p><h3 id="blip-2-2"><a class="markdownIt-Anchor" href="#blip-2-2"></a> BLIP-2</h3><h2 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> Abstract</h2><p>背景：额外的视觉指令对通用视觉语言模型具有一定挑战；</p><p>创新：基于BLIP-2模型对视觉语言指令调整进行研究。</p><ul><li>26个公开数据集，将其转换为指令调整格式；</li><li>指令感知查询转换器，根据给定的指令提取特征信息；</li></ul><p>结果：13个数据集实现zeroshot，下游任务表现较好；</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 论文研读 </tag>
+            
+            <tag> 自我提升 </tag>
+            
+            <tag> 多模态 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>双流网络论文精读</title>
       <link href="/2023/12/05/shuang-liu-wang-luo-lun-wen-jing-du/"/>
       <url>/2023/12/05/shuang-liu-wang-luo-lun-wen-jing-du/</url>
@@ -297,9 +326,9 @@
             
             <tag> 自我提升 </tag>
             
-            <tag> 综述 </tag>
-            
             <tag> 多模态 </tag>
+            
+            <tag> 综述 </tag>
             
         </tags>
       
@@ -328,9 +357,9 @@
             
             <tag> 自我提升 </tag>
             
-            <tag> 综述 </tag>
-            
             <tag> 多模态 </tag>
+            
+            <tag> 综述 </tag>
             
         </tags>
       
@@ -459,11 +488,11 @@
             
             <tag> 论文研读 </tag>
             
+            <tag> 自我提升 </tag>
+            
             <tag> 机器翻译 </tag>
             
             <tag> 实体命名识别 </tag>
-            
-            <tag> 自我提升 </tag>
             
         </tags>
       
@@ -569,9 +598,9 @@
             
             <tag> 论文研读 </tag>
             
-            <tag> 自我提升 </tag>
-            
             <tag> 视觉问答 </tag>
+            
+            <tag> 自我提升 </tag>
             
         </tags>
       

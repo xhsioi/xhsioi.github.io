@@ -4,6 +4,64 @@
   
     
     <entry>
+      <title>2024年终总结——xhsioi</title>
+      <link href="/2024/12/31/2024-nian-zhong-zong-jie-xhsioi/"/>
+      <url>/2024/12/31/2024-nian-zhong-zong-jie-xhsioi/</url>
+      
+        <content type="html"><![CDATA[<h1 id="2024年终总结xhsioi"><a class="markdownIt-Anchor" href="#2024年终总结xhsioi"></a> 2024年终总结——xhsioi</h1><p>此刻我怀着最优化数学考崩了的心情准备总结一下即将过去的2024年。为什么写这篇年终总结呢？一方面是看到群友去年写了年终总结，感觉确实有意义；另一方面，今年的事情确实很多，也算得上丰富多彩，因此写一篇年终总结记录一下。其实去年也有写过总结，详见<a href="https://xhsioi.github.io/2023/10/01/2023-nian-ji-suan-ji-bao-yan-jing-yan-fen-xiang-ci-jiu-rk8/%E3%80%82%E4%B8%8D%E8%BF%87%E8%BF%99%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%98%AF%E5%AF%B9%E4%BF%9D%E7%A0%94%E8%BF%87%E7%A8%8B%E7%9A%84%E5%B9%B3%E9%93%BA%E7%9B%B4%E5%8F%99%EF%BC%8C%E6%9B%B4%E5%83%8F%E6%98%AF%E4%B8%80%E7%AF%87%E6%9A%91%E6%9C%9F%E7%9A%84%E6%B8%B8%E8%AE%B0%EF%BC%8C%E7%BC%BA%E4%B9%8F%E5%A4%9A%E6%96%B9%E9%9D%A2%E7%9A%84%E6%80%BB%E7%BB%93%E3%80%82">https://xhsioi.github.io/2023/10/01/2023-nian-ji-suan-ji-bao-yan-jing-yan-fen-xiang-ci-jiu-rk8/。不过这篇博客是对保研过程的平铺直叙，更像是一篇暑期的游记，缺乏多方面的总结。</a></p><h2 id="学习工作总结"><a class="markdownIt-Anchor" href="#学习工作总结"></a> 学习工作总结</h2><p>今年顺利的从DUT转到了HIT，学习经历也算是收获满满。上半年忙着做实验写毕业论文，说实话，我是第一次接触多模态这个领域，多亏了师兄和赵老师的指导以及天哥的算力支持，我对多模态学习有了一定的了解。虽然实验的过程中困难重重，最后也算是给出了相较于baseline的优化结果，在实际的场景中有一点work。当然，最需要感谢的还是刘老师，我的论文因为某些不可抗力的因素被选到了外审，前前后后刘老师和我逐字逐句更改了三遍。通过这三遍修改，我对学位论文的格式有了深入的了解，这对于我后期的论文撰写而言打下了深刻的基础。</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202412311701497.png" alt="论文致谢"></p><p>随之而来的下半年，我深入参与到了实验室内部的科研任务中。首先是参加了Archer数据集的评测，结果有点惨不忍睹，被赛尔和哈深薄纱。在测评之前我一直以为基于大模型的text2sql效果是很好的，当然这都是基于项目工程上的经验。但是当真正去评测时，我们发现对于多层嵌套的SQL查询大模型的理解能力确实很弱，无论是采用指令微调还是数据微调。此外，我认为另一个被暴打的原因就是GPT-4o当时还是比 Deepseek-Coder强了太多。</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202412311701643.png" alt="Archer"></p><p>与此同时，我还参加了今年的研究生数模，用了一些传统的机器学习算法在不熟悉的电磁领域混了一个三等奖。然后就是参加了cail的司法考试主观题赛道和法律咨询对话赛道。这个比赛的赛程很长，断断续续有三个月。在这三个月的时间里，我和两位师兄常常进行深入的交流，加之相关论文的阅读，我对知识图谱和RAG相关的技术有了一定的了解。最后获得结果相较于上一次的Text2SQL有了一点点进步，在司法考试主观题赛道获得了三等奖。我觉得这个结果是比较可惜的，因为司法考试主观题赛道其实在复赛中获得了第一的成绩，后期封测过程中可能是更换了模型api导致人工评分。</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202412311707514.png" alt="CAIL"></p><p>最后，除了上述的比赛经历，我也深度参与了实验室的项目中，除了延续之前的企业大模型项目，还参与了表格理解课题的研究。这些横向积累的经验为我的纵向研究提供了基础。</p><h2 id="个人成长"><a class="markdownIt-Anchor" href="#个人成长"></a> 个人成长</h2><p>我认为在2024年个人的成长，应该是养成了一些坚持下去的习惯。例如，坚持了之前每天刷力扣的习惯：</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202412311622198.png" alt="力扣年度总结"></p><p>除此以外，坚持每天练一练外语。基于多门手艺多条路的朴素逻辑，我在今年开始用多邻国和moji学习日语，也算是把新日标初级过了一遍，寒假应该巩固一下。当然，今年的英语日常练习也没有松懈，依旧是用不背单词巩固基础，流利说练练口语。</p><h2 id="健康与生活"><a class="markdownIt-Anchor" href="#健康与生活"></a> 健康与生活</h2><p>健康方面，也是从今年开始去健身房健身。从大工体育馆的健身房，到开发区新大楼的健身房，到黄金海岸的破旧健身房，再到HIT的风雨操场。我都留下了足迹。在没啥事的情况下，尽量做到了一周五练或者一周六练。一年下来，感觉身体素质确实有提升，感觉上肢的力量有提升，体侧也能及格了，跑的比我中考还快：）。当然，训练计划还是存在问题，核心力量的训练和有氧的训练还是差点，等这几天考完试还是得多练。</p><p>这一年，我的生活丰富多彩。上半年可以说是我大学四年中最快乐的时光，第一次和唐神去恰日料喝清酒，第一次去辽宁文体旅大会薅羊毛，第一次参加泥工的嘉年华，第一次参加国际徒步大会…此外，大连的风景也是让人流连忘返，东港、港东五街、星海广场、黑石礁、莲花山、银沙滩、棒棰岛、中山广场、胜利广场…上半年正好避开了大连秋冬的妖风，真正感受到了大连这座海滨城市的魅力。</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202412311703599.png" alt="大工"></p><p>回程之中顺带在沈阳玩了玩，虽然沈阳的街道相较于大连多了些喧嚣（大连街道这么干净我怀疑可能是因为要举办达沃斯），但是也别有一番风味。沈阳作为东北的重要城市，历史悠久，文化底蕴深厚，走在街头，仿佛能感受到这座城市曾经的辉煌与沧桑。沈阳的故宫虽然规模不及北京故宫，但作为清朝初期的皇宫，依然气势恢宏，红墙黄瓦间透露出浓厚的满族文化气息。此外，九一八博物馆的沉重气氛深深感染了我。</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202412311706422.png" alt="九一八博物馆"></p><p>下半年就是在HIT的时光了，告别了昔日的朋友，踏上未知的旅途。实验室的师兄都很友善，很快就成了饭友，每周都会出去一边吃吃喝喝一边聊一聊各自的进展。半年下来，要是没有健身这个习惯的话，估计我已经是200斤的肥宅了。</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202412311705976.png" alt="image-20241231170510442"></p><h2 id="未来展望"><a class="markdownIt-Anchor" href="#未来展望"></a> 未来展望</h2><p>说起未来，我内心更多的是对迷茫。对于我这个小小专硕而言，最重要的肯定是出去实习。这样就有一个问题，下学期一定是纵向横向和八股三手抓，最优解是一学期做出足量的工作，同时找到暑假实习开溜。研二的师兄下学期即将实习，我该如何在研一下学期充分利用时间，接近这个最优解呢？无论是最速下降还是既约梯度法，我都要在寒假之前好好规划一下了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 年终总结 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 经验分享 </tag>
+            
+            <tag> 杂记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ALIGN论文阅读</title>
+      <link href="/2024/03/01/align-lun-wen-yue-du/"/>
+      <url>/2024/03/01/align-lun-wen-yue-du/</url>
+      
+        <content type="html"><![CDATA[<h1 id="scaling-up-visual-and-vision-language-representation-learning-with-noisy-text-supervision"><a class="markdownIt-Anchor" href="#scaling-up-visual-and-vision-language-representation-learning-with-noisy-text-supervision"></a> <strong>Scaling Up Visual and Vision-Language Representation Learning With Noisy Text Supervision</strong></h1><h2 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> Abstract</h2><p>背景：视觉领域缺乏无监督或者自监督学习，下游任务需要预训练模型。</p><p>目前给出的CLIP是使用带有显示标签的数据集进行训练的，本文利用一个包含十多个图片alt-text对的噪声数据集，该数据集不需要进行过滤以及后处理；</p><p>方法：双编码器架构学习使用对比损失来对其图像和文本对</p><p>任务：分类、图像-文本检索；</p><h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2><p>预训练数据集无法进行规范的扩大，本文使用alt-text对进行提取视觉表征，不进行过滤和后处理，直接获取数据集。</p><p>模型的编码上使用最简单的VSE形式，但是在模态交互的部分使用交叉注意力机制计算。</p><p>标准数据集：Conceptual Captions dataset</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 论文研读 </tag>
+            
+            <tag> 自我提升 </tag>
+            
+            <tag> 多模态 </tag>
+            
+            <tag> 大语言模型 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>每日一题整理——2023.11</title>
       <link href="/2023/12/15/mei-ri-yi-ti-zheng-li-2023-11/"/>
       <url>/2023/12/15/mei-ri-yi-ti-zheng-li-2023-11/</url>
@@ -89,11 +147,11 @@
     
     
     <entry>
-      <title>CLIP论文精读</title>
+      <title>CLIP论文精读+相关工作</title>
       <link href="/2023/12/01/clip-lun-wen-jing-du/"/>
       <url>/2023/12/01/clip-lun-wen-jing-du/</url>
       
-        <content type="html"><![CDATA[<h1 id="clip论文精读"><a class="markdownIt-Anchor" href="#clip论文精读"></a> CLIP论文精读</h1><p>论文：Learning Transferable Visual Models From Natural Language Supervision</p><p>代码：<a href="https://github.com/OpenAI/CLIP">https://github.com/OpenAI/CLIP</a></p><h2 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> Abstract</h2><p>背景：目前cv的sota都是固定预定对象类别，限制了模型的泛化能力；</p><p>创新点：直接从图像原始文本中学习，预测哪一张图片和哪一个标题匹配的简单预训练任务。（引入了自然语言处理中的监督信号）；</p><p>结果：在下游任务重实现了zero-shot，效果很好，领域覆盖OCR、视频动作识别、地理定位以及多种类型的细粒度对象分类等任务。</p><h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2><p>在NLP领域，直接从原始文本中学习的预训练方法给NLP带来了革命性的变化。（自回归、掩码语言建模）这种预训练方法获得的监督信号总量超过了高质量的人群标签NLP模型，实现了量变引起质变。</p><p>但是cv领域还是坚持标准的做法，即便是利用监督信号，也是比较弱的监督信号，例如将图片转换为hashtag扩充特征。此外，数据和模型规模不够大也是过去研究存在的一个问题。经过广泛的实践证明，超参数越多的模型在迁移学习的过程中性能保留的最好。</p><h2 id="approach"><a class="markdownIt-Anchor" href="#approach"></a> Approach</h2><h3 id="自然语言监督"><a class="markdownIt-Anchor" href="#自然语言监督"></a> 自然语言监督</h3><p>过去的部分工作介绍了与图像配对的文本中学习视觉表征的方法，都体现出了将自然语言作为训练信号的重要性。</p><p>优点：基于自然语言的方法可以被动地学习互联网上大量文本中包含的监督信息；在学习表征的同时，将表征和语言联系在一起，实现灵活的zero-shot。</p><h3 id="创建足够大的数据集wit"><a class="markdownIt-Anchor" href="#创建足够大的数据集wit"></a> 创建足够大的数据集——WIT</h3><p>背景：现有的大规模模型标注的标题往往基于自动生成，会出现与图片表征不匹配的现象。</p><p>创新：从互联网的开源资源中收集了4亿个图像文本的配对，构建新数据集。</p><h3 id="有效的预训练方法对比学习"><a class="markdownIt-Anchor" href="#有效的预训练方法对比学习"></a> 有效的预训练方法——对比学习</h3><p>最初尝试通过借鉴VirTex的工作，从头开始联合训练图像CNN和文本transformer，来预测图像的标题，说白了就是预测任务，但是得到的结果不是很好。因此引入了对比学习的方法：</p><p>训练一个系统来构建代理任务，预测哪一个文本和图像在特征空间的相似程度即可。在预训练部分，通过联合训练图像encoder和文本encoder，使批次中的N个真实配对的图像和文本嵌入的余弦相似度最大化，同时使N^2-N个错误配对的嵌入余弦相似度最小化，从而实现多模态的嵌入空间。</p><p>投影过程：非线性投影和线性投影不存在差异，推测非线性投影只在自监督的表征学习方法中和当前的图像细节共同适应。</p><p>图像增强：裁剪；</p><p>温度系数：自回归；</p><p>其算法实现的伪代码如下所示：</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202312011024102.png" alt=""></p><p>在训练的过程中证明了ViT的效率还是远高于ResNet的。</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="clip论文精读相关工作"><a class="markdownIt-Anchor" href="#clip论文精读相关工作"></a> CLIP论文精读+相关工作</h1><p>论文：Learning Transferable Visual Models From Natural Language Supervision</p><p>代码：<a href="https://github.com/OpenAI/CLIP">https://github.com/OpenAI/CLIP</a></p><h2 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> Abstract</h2><p>背景：目前cv的sota都是固定预定对象类别，限制了模型的泛化能力；</p><p>创新点：直接从图像原始文本中学习，预测哪一张图片和哪一个标题匹配的简单预训练任务。（引入了自然语言处理中的监督信号）；</p><p>结果：在下游任务重实现了zero-shot，效果很好，领域覆盖OCR、视频动作识别、地理定位以及多种类型的细粒度对象分类等任务。</p><h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2><p>在NLP领域，直接从原始文本中学习的预训练方法给NLP带来了革命性的变化。（自回归、掩码语言建模）这种预训练方法获得的监督信号总量超过了高质量的人群标签NLP模型，实现了量变引起质变。</p><p>但是cv领域还是坚持标准的做法，即便是利用监督信号，也是比较弱的监督信号，例如将图片转换为hashtag扩充特征。此外，数据和模型规模不够大也是过去研究存在的一个问题。经过广泛的实践证明，超参数越多的模型在迁移学习的过程中性能保留的最好。</p><h2 id="approach"><a class="markdownIt-Anchor" href="#approach"></a> Approach</h2><h3 id="自然语言监督"><a class="markdownIt-Anchor" href="#自然语言监督"></a> 自然语言监督</h3><p>过去的部分工作介绍了与图像配对的文本中学习视觉表征的方法，都体现出了将自然语言作为训练信号的重要性。</p><p>优点：基于自然语言的方法可以被动地学习互联网上大量文本中包含的监督信息；在学习表征的同时，将表征和语言联系在一起，实现灵活的zero-shot。</p><h3 id="创建足够大的数据集wit"><a class="markdownIt-Anchor" href="#创建足够大的数据集wit"></a> 创建足够大的数据集——WIT</h3><p>背景：现有的大规模模型标注的标题往往基于自动生成，会出现与图片表征不匹配的现象。</p><p>创新：从互联网的开源资源中收集了4亿个图像文本的配对，构建新数据集。</p><h3 id="有效的预训练方法对比学习"><a class="markdownIt-Anchor" href="#有效的预训练方法对比学习"></a> 有效的预训练方法——对比学习</h3><p>最初尝试通过借鉴VirTex的工作，从头开始联合训练图像CNN和文本transformer，来预测图像的标题，说白了就是预测任务，但是得到的结果不是很好。因此引入了对比学习的方法：</p><p>训练一个系统来构建代理任务，预测哪一个文本和图像在特征空间的相似程度即可。在预训练部分，通过联合训练图像encoder和文本encoder，使批次中的N个真实配对的图像和文本嵌入的余弦相似度最大化，同时使N^2-N个错误配对的嵌入余弦相似度最小化，从而实现多模态的嵌入空间。</p><p>投影过程：非线性投影和线性投影不存在差异，推测非线性投影只在自监督的表征学习方法中和当前的图像细节共同适应。</p><p>图像增强：裁剪；</p><p>温度系数：自回归；</p><p>其算法实现的伪代码如下所示：</p><p><img src="https://gcore.jsdelivr.net/gh/xhsioi/blog-img@main/img/202312011024102.png" alt=""></p><p>在训练的过程中证明了ViT的效率还是远高于ResNet的。</p><h1 id="clip相关工作"><a class="markdownIt-Anchor" href="#clip相关工作"></a> CLIP相关工作</h1><h2 id="分割领域lseg"><a class="markdownIt-Anchor" href="#分割领域lseg"></a> 分割领域（LSeg）</h2><p>将文本信息添加到有监督的图像分割模型中，zeroshot在分割领域还是弱于有监督的模型，此外作为标签的单词并不一定代表标注的位置；</p><h2 id="groupvit分割"><a class="markdownIt-Anchor" href="#groupvit分割"></a> GroupViT（分割）</h2><p>基于的技术为grouping方法，即从某个像素点开始向周围进行扩散，最终确定分割边界。开始时确定固定的类别数，然后通过transformer进行学习判断哪些patch的类别。对于每一个类别而言，都可以确定一个具体的token，将这个token进行汇总，最终得到图片的8个特征token。将这8个token进行average之后和文本的token进行对比学习确定损失，这里使用到了CLIP。</p><p>为什么zeroshot的无监督在部分数据集上的结果会明显低于有监督的模型呢？主要原因其实是CLIP在训练的过程中使用的数据都是明确的语义和图像的配对，因此在图像分割时对于较为模糊的语义时会匹配到错误的答案。</p><h2 id="目标检测"><a class="markdownIt-Anchor" href="#目标检测"></a> 目标检测</h2><h3 id="vild"><a class="markdownIt-Anchor" href="#vild"></a> VILD</h3><p>将CLIP作为teacher模型进行蒸馏，<strong>引言写的非常好</strong>。整体上分为image ViLD和text ViLD</p><p><img src="CLIP%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB.assets/image-20240228104644114.png" alt="image-20240228104644114"></p><h3 id="glip"><a class="markdownIt-Anchor" href="#glip"></a> GLiP</h3><p>提供prompt直接检测图像中的对象，将目标检测和pharse grounding进行合并。在目标检测部分，损失函数计算如下：</p><p><img src="CLIP%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB.assets/image-20240229125950754.png" alt="image-20240229125950754"></p><h2 id="生成领域"><a class="markdownIt-Anchor" href="#生成领域"></a> 生成领域</h2><h3 id="clipasso"><a class="markdownIt-Anchor" href="#clipasso"></a> CLIPasso</h3><p>对图像进行简化，最终简化成简笔画。</p><p><img src="CLIP%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB.assets/image-20240229141309241.png" alt="image-20240229141309241"></p><p>限制：只有当图像的背景是白色时才能有很好的效果，作者的解决方法是进行抠图，可能不是最优的解决方法，因此可能会有新的端到端的解决方法；此外，初始化的笔画是同时生成的，不是序列生成的，这和人的行为相反。后续的工作或许可以从笔画顺序进行分析；最后，在进行简化时必须进行笔画数量的限定。</p><h3 id="clip4clip"><a class="markdownIt-Anchor" href="#clip4clip"></a> CLIP4Clip</h3><p>视频-文本检索领域。这篇文章从三个方面分析了如何利用CLIP对视频进行检索：对于视频数据，因为相较于图片增加了时序信息，因此作者在获取文本嵌入和每一帧的图像嵌入之后，分别带入三个模型进行训练;</p><ul><li>mean-pooling：将每一帧的图片特征进行平均计算得到一个特征，即转化为文本-图像的检索过程；</li><li>transformer：对于视频中的图片使用注意力机制得到特征比对；</li><li>在没有进行文本和图片嵌入时，将所有信息放在一个transformer中进行训练；</li></ul><p>limitation：学习率在这三个模型中起到了非常重要的作用；</p><h3 id="actionclip"><a class="markdownIt-Anchor" href="#actionclip"></a> ActionCLIP</h3><p>动作识别</p><h3 id="audioclip"><a class="markdownIt-Anchor" href="#audioclip"></a> AudioCLIP</h3><p><img src="CLIP%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB.assets/image-20240229150531781.png" alt="image-20240229150531781"></p><h3 id="pointclip"><a class="markdownIt-Anchor" href="#pointclip"></a> PointCLIP</h3><p><img src="CLIP%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB.assets/image-20240229150800813.png" alt="image-20240229150800813"></p><p>利用深度信息进行检索，也是可以参考的一篇文献。</p>]]></content>
       
       
       
